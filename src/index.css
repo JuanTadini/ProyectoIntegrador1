@@ -31,14 +31,11 @@ a:hover {
 }
 
  body {
-  background-color: #646cff;
+  background-color: #C3D4FA;
   min-height: 100%;
   
 }
 
-html{
-  height: 100%;
-}
 
 h1 {
   font-size: 3.2em;

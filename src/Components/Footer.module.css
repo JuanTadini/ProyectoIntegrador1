@@ -2,7 +2,6 @@
     background-color: #FFFFFF;
     display:flex;
     justify-content:space-around;
-    position: absolute;
     bottom: 0;
     width: 100%;
 }

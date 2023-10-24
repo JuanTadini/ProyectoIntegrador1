@@ -9,6 +9,8 @@ import Create from './Routes/Create'
 import List from './Routes/List'
 import Footer from './Components/Footer'
 import styles from './App.module.css'
+import Buscar from './Routes/Buscar'
+import Recomendation from './Routes/Recomendation'
 
 function App() {
 	return (
@@ -16,6 +18,8 @@ function App() {
 			<Navbar/>
 			<Routes>
 				<Route path='/' element={<Home/>}/>
+				<Route path='/buscar' element={<Buscar/>}/>
+				<Route path='/recomendation' element={<Recomendation/>}/>
 				<Route path='/detail/:id' element={<Detail/>}/>
 				<Route path='/products' element={<Products/>}/>
 				<Route path='/manage' element={<Manage/>}/>

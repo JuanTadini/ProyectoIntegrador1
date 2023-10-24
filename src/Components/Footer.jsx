@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
     <footer className={styles["footer"]}>
 		<div className={styles["logoFooter"]}>
-			<img src="logo" alt="logo" />
+		  	<Link to="/"> <img src="logo" alt="logo" /></Link>
 			<p>Copyright © 2023 CumbreSki. Todos los derechos reservados.</p>
 		</div>
 		<div className={styles["footer-redes"]}>
