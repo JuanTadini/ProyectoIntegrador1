@@ -31,5 +31,57 @@ export const datosFicticios = [
         images: [skiRojo1],
         description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         price: 500
+    },
+    {
+        id: 1,
+        name: 'Snowboard',
+        images: [snowboard1],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        price: 1000
+    },
+    {
+        id: 2,
+        name: 'Kit de ski verde',
+        images: [
+            skiVerde1,
+            skiVerde2,
+            skiVerde3,
+            skiVerde4
+        ],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        price: 2000
+    },
+    {
+        id: 3,
+        name: 'Ski Rojo',
+        images: [skiRojo1],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        price: 500
+    },
+    {
+        id: 1,
+        name: 'Snowboard',
+        images: [snowboard1],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
+        price: 1000
+    },
+    {
+        id: 2,
+        name: 'Kit de ski verde',
+        images: [
+            skiVerde1,
+            skiVerde2,
+            skiVerde3,
+            skiVerde4
+        ],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        price: 2000
+    },
+    {
+        id: 3,
+        name: 'Ski Rojo',
+        images: [skiRojo1],
+        description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        price: 500
     }
 ]

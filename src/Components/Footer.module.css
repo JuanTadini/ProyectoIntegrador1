@@ -1,0 +1,36 @@
+.footer{
+    background-color: #FFFFFF;
+    display:flex;
+    justify-content:space-around;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-img{
+    max-width: 10rem;
+    max-height: 5rem;
+}
+
+.footer-redes{
+    display: flex;
+    gap: 1rem;
+    justify-content:flex-end;
+    margin:0.3rem ;
+}
+
+.footer-redes-icono{
+    width: 2rem;
+    height: 2rem;
+    background-color: #0075FF;
+}
+
+.footer-redes-icono:hover{
+    color: rgba(15, 47, 230, 0.578);
+}
+
+.logoFooter{
+    display: flex;
+    gap: 0.5rem;
+    font-size: smaller;
+
+}

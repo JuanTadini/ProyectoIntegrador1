@@ -1,4 +1,4 @@
-import './App.css'
+import './App.module.css'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Home from './Routes/Home'
@@ -8,13 +8,18 @@ import Manage from './Routes/Manage'
 import Create from './Routes/Create'
 import List from './Routes/List'
 import Footer from './Components/Footer'
+import styles from './App.module.css'
+import Buscar from './Routes/Buscar'
+import Recomendation from './Routes/Recomendation'
 
 function App() {
 	return (
-		<div className='App'>
+		<div className={styles['home']}>
 			<Navbar/>
 			<Routes>
 				<Route path='/' element={<Home/>}/>
+				<Route path='/buscar' element={<Buscar/>}/>
+				<Route path='/recomendation' element={<Recomendation/>}/>
 				<Route path='/detail/:id' element={<Detail/>}/>
 				<Route path='/products' element={<Products/>}/>
 				<Route path='/manage' element={<Manage/>}/>

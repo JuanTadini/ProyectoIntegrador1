@@ -1,0 +1,30 @@
+.nav{
+    background-color: #F0F4FE;
+    align-items:center;
+    display: flex;
+    flex-direction:row;
+    font-size: 1em;
+    gap: 2em;
+    justify-content:space-between;
+    text-decoration: none;
+    padding: 1rem;
+    width: 100%;
+}
+
+.crearIniciar{
+    display: flex;
+    gap: 0.5rem;
+}
+
+.crear{
+    background-color:#0075FF ;
+    color:#FFFFFF ;
+    border-radius: 0.8rem;
+}
+
+.logo{
+    display: flex;
+    gap: 0.5rem;
+    font-size: smaller;
+}
+

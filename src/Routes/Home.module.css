@@ -1,0 +1,43 @@
+.home{
+    margin: 8rem 5rem;
+}
+
+.homeVentanas{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.homeBuscar , .homeproducto , .homeRecomendar{
+    background-color: #404040;
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    gap: 2rem;
+    text-align: center;
+}
+
+.homeproducto{
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-radius: 3rem;
+    color: black;
+}
+
+.homeFiltro{
+    display: flex;
+    justify-content: space-around;
+}
+
+.buscar{
+    background-color:#0075FF ;
+    color:#FFFFFF ;
+    border-radius: 0.8rem;
+}
