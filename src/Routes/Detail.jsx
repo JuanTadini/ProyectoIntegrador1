@@ -1,7 +1,7 @@
+import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useProductStates } from '../Components/Context/Context'
-import { datosFicticios } from '../Components/Context/datos'
 
 const Detail = () => {
 
@@ -9,23 +9,21 @@ const Detail = () => {
 
     const params = useParams()
 
-	const data = datosFicticios
+	const url = `https://fakestoreapi.com/products/${params.id}`
 
 	useEffect(() => {
-		dispatch({type: 'GET_PRODUCT', payload: data[params.id - 1]})
+		axios(url)
+		.then(res => dispatch({type: 'GET_PRODUCT', payload: res.data}))
 	}, [])
-
-	const fotos = [state.product.images]
-
-	console.log(data[params.id - 1])
-
-	console.log([state.product.images])
 
 	return (
 		<div>
-			<h1>Product: {state.product.name}</h1>
+			<h1>Product: {state.product.title}</h1>
+			<h2>id: {state.product.id}</h2>
+			<img style={{height: 100, width: 100}} src={state.product.image} alt="" />
+			<h2>Category: {state.product.category}</h2>
 			<h2>{state.product.description}</h2>
-			{/* <img style={{height: 100, width: 100}} src={fotos[0][0]} alt="" /> */}
+			<h2>Cost/day: {state.product.price}</h2>
 		</div>
 	)
 }
