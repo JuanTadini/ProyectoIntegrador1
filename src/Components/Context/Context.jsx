@@ -1,7 +1,7 @@
+import axios from 'axios'
 import {useContext, createContext, useState, useReducer, useEffect} from 'react'
-import { datosFicticios } from './datos'
 
-const ProductStates = createContext()
+const ContextGlobal = createContext()
 
 const reducer = (state, action) => {
 	switch (action.type) {
@@ -25,27 +25,20 @@ export const ContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    // dejo esto acá para cuando tengamos la API
-    // const url = 'https://nombreDelDominio.com/products'
-
-    // useEffect(() => {
-	// 	axios(url)
-	// 	.then(res => dispatch({type: 'GET_PRODUCTS', payload: res.data}))
-	// }, [])
-
-    const data = datosFicticios
+    const url = 'https://fakestoreapi.com/products'
 
     useEffect(() => {
-        dispatch({type: 'GET_PRODUCTS', payload: data})
-    }, [])
+		axios(url)
+		.then(res => dispatch({type: 'GET_PRODUCTS', payload: res.data}))
+	}, [])
 
     return (
-        <ProductStates.Provider value={{state, dispatch}}>
+        <ContextGlobal.Provider value={{state, dispatch}}>
             {children}
-        </ProductStates.Provider>
+        </ContextGlobal.Provider>
     )
 }
 
 export default ContextProvider
 
-export const useProductStates = () => useContext(ProductStates)
+export const useProductStates = () => useContext(ContextGlobal)
