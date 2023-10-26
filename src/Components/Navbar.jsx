@@ -7,7 +7,7 @@ const Navbar = () => {
   return (
     <nav className={styles['nav']}>
       <div className={styles['logo']}>
-        <Link to="/"> <img src="logo" alt="logo" /></Link>
+        <Link to="/"> <img className={styles["logo1"]} src="./../public/imagenes/logo1.png" alt="logo1" alt="logo" /></Link>
         <p>Vivi la temporada de invierno en la nieve</p>
       </div>
         <Link to="/buscar">BUSCADOR</Link>

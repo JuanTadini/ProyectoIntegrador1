@@ -1,0 +1,21 @@
+
+.homeBuscar{
+    background-color: #404040;
+    padding: 3rem 6rem;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    gap: 2rem;
+    text-align: center;
+}
+
+.homeFiltro{
+        display: flex;
+        justify-content: space-around;
+}
+
+.buscar{
+    background-color:#0075FF ;
+    color:#FFFFFF ;
+    border-radius: 0.8rem;
+}

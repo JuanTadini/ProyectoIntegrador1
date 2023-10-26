@@ -27,9 +27,30 @@ export const ContextProvider = ({ children }) => {
 
     const url = 'https://fakestoreapi.com/products'
 
+	function get_reponse_data(response){
+		let count =  0
+		let aux = []
+		while (count < 10) {
+			const indexNumber = Math.floor(Math.random() * 19);
+			if(aux.indexOf(indexNumber) < 0){
+				aux.push(indexNumber)
+				count = count + 1
+			}
+		}
+		return aux.map((i) => {
+			return {
+				id: response[i].id, title: response[i].title,
+				image: response[i].image, price: response[i].price
+			};
+		})
+	}
+
     useEffect(() => {
 		axios(url)
-		.then(res => dispatch({type: 'GET_PRODUCTS', payload: res.data}))
+		.then(res => dispatch({
+			type: 'GET_PRODUCTS',
+			payload: get_reponse_data(res.data)
+		}))
 	}, [])
 
     return (

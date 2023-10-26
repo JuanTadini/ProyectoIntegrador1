@@ -28,5 +28,9 @@
     display: flex;
     gap: 0.5rem;
     font-size: smaller;
+    align-items: center;
 }
 
+.logo1{
+    width: 5rem;
+}

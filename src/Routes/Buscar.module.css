@@ -1,0 +1,10 @@
+.card-grid{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    border-radius: 3rem;
+    padding: 2rem;
+    min-height: 100vh ;
+}
+
