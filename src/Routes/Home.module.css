@@ -19,8 +19,12 @@
 }
 
 .homeproducto{
-    flex-direction: row;
     justify-content: space-around;
+}
+
+.homeRec{
+    display: flex;
+    align-items: center;
 }
 
 .card-grid{
@@ -28,7 +32,6 @@
     flex-wrap: wrap;
     gap: 2rem;
     border-radius: 3rem;
-    color: black;
 }
 
 .homeFiltro{
