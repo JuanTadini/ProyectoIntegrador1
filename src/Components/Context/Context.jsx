@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {useContext, createContext, useState, useReducer, useEffect} from 'react'
+import {useContext, createContext, useReducer, useEffect} from 'react'
 
 const ContextGlobal = createContext()
 
