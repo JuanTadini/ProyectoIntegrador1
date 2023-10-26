@@ -11,6 +11,7 @@ import Footer from './Components/Footer'
 import styles from './App.module.css'
 import Buscar from './Routes/Buscar'
 import Recomendation from './Routes/Recomendation'
+import Gallery from './Routes/Gallery'
 
 function App() {
 	return (
@@ -21,6 +22,7 @@ function App() {
 				<Route path='/buscar' element={<Buscar/>}/>
 				<Route path='/recomendation' element={<Recomendation/>}/>
 				<Route path='/detail/:id' element={<Detail/>}/>
+				<Route path='/detail/:id/gallery' element={<Gallery/>}/>
 				<Route path='/products' element={<Products/>}/>
 				<Route path='/manage' element={<Manage/>}/>
 				<Route path='/create' element={<Create/>}/>

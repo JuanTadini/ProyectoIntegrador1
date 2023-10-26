@@ -11,6 +11,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     	<App />
   	</ContextProvider>
   </BrowserRouter>
-
-  //falta crear un contexto para poder manejar estados y englobar la app en ese contexto
 )
