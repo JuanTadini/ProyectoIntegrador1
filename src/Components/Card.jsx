@@ -5,7 +5,7 @@ import styles from './Card.module.css'
 const Card = ({product}) => {
   return (
     <div className={styles['card']}>
-      <img style={{height: 100, width: 100}} src={product.images[0]} alt="" />
+      <img style={{height: 100, width: 100}} src={product.image} alt="" />
       <Link to={'/detail/' + product.id}>
       <h2>Name: {product.title}</h2>
       </Link>
