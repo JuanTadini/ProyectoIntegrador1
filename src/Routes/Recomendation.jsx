@@ -1,10 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useProductStates } from "../Components/Context/Context";
+import Card from "../Components/Card.jsx"
+import styles from "./Recomendation.module.css"
 
 const Recomendation = () => {
-  return (
-    <h1>Recomendaciones</h1>
+	const { state } = useProductStates;
+	return (
+		<main>
+			{/* <div className={styles["card-grid-recomen"]}>
+						{state.products.map((product) => (
+							<Card product={product} key={product.id} />
+						))}
+					</div> */}
+		</main>
+	);
+};
 
-  )
-}
-
-export default Recomendation
+export default Recomendation;
