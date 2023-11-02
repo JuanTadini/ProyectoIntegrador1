@@ -15,7 +15,7 @@ const Buscador = () => {
 						<button>fecha</button>
 						<button>categorias</button>
 						<button className={styles["buscar"]}>
-							<img src="../../public/imagenes/crearCuenta.png" alt="vector1" />
+							<img src="/imagenes/crearCuenta.png" alt="vector1" />
 						</button>
 					</div>
 				</section>

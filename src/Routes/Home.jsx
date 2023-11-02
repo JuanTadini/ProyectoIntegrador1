@@ -31,7 +31,7 @@ const Home = () => {
 						</div>
 						<img
 							style={{ height: 50, width: 50 }}
-							src="../../public/imagenes/flecha.png"
+							src="/imagenes/flecha.png"
 							alt="flecha"
 						/>
 					</div>
