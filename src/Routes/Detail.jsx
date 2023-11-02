@@ -40,32 +40,32 @@ const Detail = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles['gallery-images-container']}>
+			<div className={styles['detail-gallery-images-box']}>
 				<div className={styles['selected-image-container']}>
-					<img className={styles['selected-image']} src={placeholderImage} alt="placeholder" />
+					<img className={styles['selected-image']} src={state.product.image} alt="placeholder" />
 				</div>
-				<div className={styles['alternate-images-container']}>
-					<div className={styles['alternate-image-box']}>
+				<div className={styles['alternate-images-box']}>
+					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
 						src={placeholderImage} alt="placeholder" />
 					</div>
-					<div className={styles['alternate-image-box']}>
+					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
 						src={placeholderImage} alt="placeholder" />
 					</div>
 					<div className={styles['break']}></div>
-					<div className={styles['alternate-image-box']}>
+					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
 						src={placeholderImage} alt="placeholder" />
 					</div>
-					<div className={styles['alternate-image-box']}>
+					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
 						src={placeholderImage} alt="placeholder" />
 					</div>
 				</div>
 			</div>
 			<div className={styles['detail-link-area']}>
-				<Link to="/detail/:id/gallery" id={styles['detail-link']}>Ver detalle</Link>
+				<Link to={"/detail/" + state.product.id + "/gallery"} id={styles['detail-link']}>Ver detalle</Link>
 			</div>
 		</div>
 	)

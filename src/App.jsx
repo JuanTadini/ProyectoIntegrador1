@@ -12,6 +12,7 @@ import styles from './App.module.css'
 import Buscar from './Routes/Buscar'
 import Recomendation from './Routes/Recomendation'
 import Gallery from './Routes/Gallery'
+import Login from './Routes/Login'
 
 function App() {
 	return (
@@ -27,6 +28,7 @@ function App() {
 				<Route path='/manage' element={<Manage/>}/>
 				<Route path='/create' element={<Create/>}/>
 				<Route path='/list' element={<List/>}/>
+				<Route path='/login' element={<Login/>}/>
 			</Routes>
 			<Footer/>
 		</div>
