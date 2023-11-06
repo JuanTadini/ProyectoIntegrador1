@@ -29,22 +29,6 @@
     max-height: 100%;
 }
 
-.top-left {
-    background-color: #4870E9;
-}
-
-.top-right {
-    background-color: #2835A5;
-}
-
-.bottom-left {
-    background-color: #9AB9F6;
-}
-
-.bottom-right {
-    background-color: #253283;
-}
-
 @media (max-width: 800px) {
     .gallery {
         height: 50vw;
