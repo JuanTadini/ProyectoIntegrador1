@@ -69,6 +69,7 @@
 
 .detail-gallery-images-box {
     border-top: 2px solid black;
+    background-color: #fff;
     display: flex;
     height: 30vw;
 }
