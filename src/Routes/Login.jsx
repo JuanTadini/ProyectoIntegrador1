@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useProductStates } from '../Components/Context/Context';
 import LoginForm from '../Components/LoginForm';
 import styles from './Login.module.css'
@@ -12,7 +12,7 @@ const Login = () => {
     <div>
       <div className={styles['form-container']}>
         <div className={styles['form-box']}>
-          <h2>Registro de nuevo usuario</h2>
+          <h2>Iniciar sesión</h2>
           <LoginForm/>
         </div>
       </div>

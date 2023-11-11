@@ -1,0 +1,37 @@
+.manage-pannel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.separador {
+    background-color: #0075FF;
+    height: 10px;
+    width: 50%;
+}
+
+.management-columns-container {
+    display: flex;
+}
+
+.warning-responsive {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .manage-pannel-container {
+        display: none;
+    }
+
+    .warning-responsive {
+        padding: 2rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .warning-responsive>h3 {
+        text-align: center;
+        color: red;
+        width: 80%;
+    }
+}
