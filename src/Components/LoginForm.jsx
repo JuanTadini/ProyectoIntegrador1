@@ -1,45 +1,60 @@
 import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import styles from './LoginForm.module.css'
+import axios from 'axios';
 
 const LoginForm = () => {
 
     const {state} = useProductStates();
 
     const [user, setUser] = useState({
-        name: '',
+        email: '',
         password: ''
     })
     
     const [form, setForm] = useState(false);
     const [usernameError, setUsernameError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+
+    let url = 'http://localhost:8080/login'
     
     const onSubmitForm = (e) => {
         e.preventDefault();
         setForm(true);
-        if (user.name.length >= 3 && user.password.length >= 8) {
-            // hacer post con los datos ingresados y luego, segun la respuesta, hacer login o no
-            setUser(user);
+        if (user.email.length >= 5) {
             setUsernameError(false);
+        }
+        if (user.password.length >= 8) {
             setPasswordError(false);
-        } else if (user.name.length <= 2) {
+        }
+        if (user.email.length < 3) {
             setUsernameError(true);
-        } else if (user.password.length <= 7) {
+        }
+        if (user.password.length < 8) {
             setPasswordError(true);
+        }
+        if (user.email.length >= 5 && user.password.length >= 8) {
+            setUser(user);
+            axios.post(url, {user})
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
         }
     }
     
   return (
     <div>
         <form onSubmit={onSubmitForm}>
-            <label>Ingrese su nombre de usuario</label>
-            <input type="text" onChange={(event) => setUser({...user, name: event.target.value})} />
-            <label>Ingrese su contraseña</label>
-            <input type="password" onChange={(event) => setUser({...user, password: event.target.value})} />
+            <div className={styles['form-item']}>
+                <label>Ingrese su nombre de usuario</label>
+                <input type="email" onChange={(event) => setUser({...user, email: event.target.value})} name='email' />
+            </div>
+            <div className={styles['form-item']}>
+                <label>Ingrese su contraseña</label>
+                <input type="password" onChange={(event) => setUser({...user, password: event.target.value})} />
+            </div>
             <button type="submit">Enviar</button>
-            {form && usernameError && <h3 style={{color: 'red'}}>Por favor verifique su nombre de usuario</h3>}
-            {form && passwordError && <h3 style={{color: 'red'}}>Por favor verifique su contraseña</h3>}
+            {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
+            {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
             {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}
         </form>
     </div>

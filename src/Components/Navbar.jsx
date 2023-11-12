@@ -13,8 +13,12 @@ const Navbar = () => {
         <Link to="/buscar">BUSCADOR</Link>
         <Link to="/recomendation">RECOMENDACIONES</Link>
       <div className={styles['crearIniciar']}>
+      <Link to="/register">
         <button className={styles['crear']}><img className={styles["vector1"]} src="/imagenes/vector1.png" alt="vector1" />  Crear Cuenta</button>
-        <Link to="/login"><button className={styles['crear']}><img className={styles["vector1"]} src="/imagenes/navigation.png" alt="vector1" /> Iniciar Seccion</button></Link>
+        </Link>
+        <Link to="/login">
+          <button className={styles['crear']}><img className={styles["vector1"]} src="/imagenes/navigation.png" alt="vector1" /> Iniciar Sesión</button>
+          </Link>
       </div>
     </nav>
   )
