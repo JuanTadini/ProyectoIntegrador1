@@ -13,7 +13,7 @@ const Detail = () => {
 
     const params = useParams()
 
-	const url = `https://fakestoreapi.com/products/${params.id}`
+	const url = `http://localhost:8080/productos/${params.id}`
 
 	useEffect(() => {
 		axios(url)

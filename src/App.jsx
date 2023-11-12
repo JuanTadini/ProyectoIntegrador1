@@ -10,7 +10,7 @@ import List from './Routes/List'
 import Footer from './Components/Footer'
 import styles from './App.module.css'
 import Buscar from './Routes/Buscar'
-import Recomendation from './Routes/Recomendation'
+import Categorias from './Routes/Categorias'
 import Gallery from './Routes/Gallery'
 import Login from './Routes/Login'
 
@@ -21,7 +21,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<Home/>}/>
 				<Route path='/buscar' element={<Buscar/>}/>
-				<Route path='/recomendation' element={<Recomendation/>}/>
+				<Route path='/categorias' element={<Categorias/>}/>
 				<Route path='/detail/:id' element={<Detail/>}/>
 				<Route path='/detail/:id/gallery' element={<Gallery/>}/>
 				<Route path='/products' element={<Products/>}/>
