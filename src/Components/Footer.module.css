@@ -2,10 +2,11 @@
 .footer{
     background-color: #FFFFFF;
     display:flex;
-    justify-content:space-around;
+
     bottom: 0;
     width: 100%;
     margin-top: auto;
+    height: 4rem;
 }
 
 .footer-img{
@@ -38,5 +39,5 @@
 }
 
 .logo1{
-    width: 6rem;
+    width: 10rem;
 }

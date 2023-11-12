@@ -9,12 +9,12 @@ const Footer = () => {
 		  	<Link to="/"> <img className={styles["logo1"]} src="/imagenes/logo1.png" alt="logo1" /></Link>
 			<p>Copyright © 2023 CumbreSki. Todos los derechos reservados.</p>
 		</div>
-		<div className={styles["footer-redes"]}>
+		{/* <div className={styles["footer-redes"]}>
 			<img className={styles["footer-redes-icono"]} src="/imagenes/ico-facebook.png" alt="facebook" />
 			<img className={styles["footer-redes-icono"]} src="/imagenes/ico-instagram.png" alt="instagram" />
 			<img className={styles["footer-redes-icono"]} src="/imagenes/ico-tiktok.png" alt="tiktok" />
 			<img className={styles["footer-redes-icono"]} src="/imagenes/ico-whatsapp.png" alt="whatsapp" />
-		</div>
+		</div> */}
 	</footer>
   )
 }

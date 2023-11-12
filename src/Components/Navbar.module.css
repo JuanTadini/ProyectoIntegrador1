@@ -1,12 +1,10 @@
 .nav{
-    background-color: #F0F4FE;
+    background-color: #FFFFFF;
     align-items:center;
     display: flex;
-    flex-direction:row;
+    justify-content: space-between;
     font-size: 1em;
     gap: 2em;
-    justify-content:space-between;
-    text-decoration: none;
     padding: 1rem;
     width: 100%;
     position:sticky;
@@ -31,6 +29,11 @@
     align-items: center;
 }
 
+.lema{
+    font-family: 'lora', sans-serif;
+    font-size: 15px;
+}
+
 .logo1{
-    width: 5rem;
+    width: 10rem;
 }

@@ -9,6 +9,10 @@ const reducer = (state, action) => {
 			return {...state, products: action.payload}
 		case 'GET_PRODUCT':
 			return {...state, product: action.payload}
+		case 'GET_CATEGORY':	
+			return {...state, categories: action.payload}
+			case 'GET_RECOMMENDATION':	
+			return {...state, recommendation: action.payload}
 		// case 'SWITCH_THEME':
 		// 	return {...state, theme: !state.theme}
 		default:
@@ -19,7 +23,9 @@ const reducer = (state, action) => {
 const initialState = {
 	user: {},
     products: [],
-    product: {}
+    product: {},
+	categories:[],
+	recommendation:[]
 }
 
 export const ContextProvider = ({ children }) => {
@@ -28,10 +34,10 @@ export const ContextProvider = ({ children }) => {
 
     const url = 'https://fakestoreapi.com/products'
 
-	function get_reponse_data(response){
+	function get_reponse_data(response , cantidad){
 		let count =  0
 		let aux = []
-		while (count < 10) {
+		while (count < cantidad) {
 			const indexNumber = Math.floor(Math.random() * 19);
 			if(aux.indexOf(indexNumber) < 0){
 				aux.push(indexNumber)
@@ -50,9 +56,24 @@ export const ContextProvider = ({ children }) => {
 		axios(url)
 		.then(res => dispatch({
 			type: 'GET_PRODUCTS',
-			payload: get_reponse_data(res.data)
+			payload: get_reponse_data(res.data, 10)
 		}))
-	}, [])
+
+		axios(url)
+		.then(res => dispatch({
+			type: 'GET_CATEGORY',
+			payload: get_reponse_data(res.data, 4)
+		}))
+
+		axios(url)
+		.then(res => dispatch({
+			type: 'GET_RECOMMENDATION',
+			payload: get_reponse_data(res.data, 4)
+		}))
+	}, 
+	[])
+
+
 
     return (
         <ContextGlobal.Provider value={{state, dispatch}}>

@@ -13,6 +13,7 @@ const Detail = () => {
 
     const params = useParams()
 
+
 	const url = `https://fakestoreapi.com/products/${params.id}`
 	// const url = `https://localhost:8080/products/${params.id}`
 
