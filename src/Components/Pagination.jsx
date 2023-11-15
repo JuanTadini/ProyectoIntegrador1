@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import styles from './Pagination.module.css';
 
-export const Paginacion = ({pagina, setPagina, maximo}) => {
+export const Pagination = ({pagina, setPagina, maximo}) => {
   const [input, setInput] = useState (1);
 
   const nextPage = () => {

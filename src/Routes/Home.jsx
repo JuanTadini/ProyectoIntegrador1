@@ -13,7 +13,7 @@ const Home = () => {
 	const { state } = useProductStates();
 	const [pagina, setPagina] = useState(1);
 	const [porPagina, setPorPagina] = useState(10);
-	const maximo = product.length / porPagina;
+	const maximo = state.products.length / porPagina;
 
 	return (
 		<main className={styles["home"]}>
@@ -36,15 +36,15 @@ const Home = () => {
 					</div>
 					<div className={styles.container}>
 						<div className={styles.containerPoke}>
-							{product.slice(
+							{state.products.slice(
 								(pagina - 1) * porPagina,
 								(pagina - 1) * porPagina + porPagina
 							).map((product, i) => (
 								<div key={i} className={styles.pokeContainer}>
 									<div className={styles.imgContainer}>
-										<img src={pokemon.img} alt={pokemon.name} />
+										<img src={product.img} alt={product.name} />
 									</div>
-									<p>{pokemon.name}</p>
+									<p>{product.name}</p>
 								</div>
 							))}
 						</div>
