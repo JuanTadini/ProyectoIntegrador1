@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
-import styles from './LoginForm.module.css';
+import styles from './RegisterForm.module.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
@@ -68,9 +68,9 @@ const RegisterForm = () => {
                 <input type="password" placeholder='************' onChange={(event) => setUser({...user, password: event.target.value})} />
             </div>
             <button type="submit">Registrar</button>
-            <div>
+            <div className={styles['link-container']}>
               <p>¿Ya ténes una cuenta?</p>
-              <Link to='/register'>Iniciar sesión</Link>
+              <Link to='/login'>Iniciar sesión</Link>
             </div>
             
             {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}

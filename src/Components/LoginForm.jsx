@@ -56,7 +56,7 @@ const LoginForm = () => {
             <button type="submit">Enviar</button>
             <div>
               <p>¿Eres nuevo aquí?</p>
-              <Link to='/login'>
+              <Link to='/register'>
 						{" "}Crear Cuenta</Link>
             </div>
             {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
