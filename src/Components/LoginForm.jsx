@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import styles from './LoginForm.module.css'
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
 
@@ -45,14 +46,19 @@ const LoginForm = () => {
     <div>
         <form onSubmit={onSubmitForm}>
             <div className={styles['form-item']}>
-                <label>Ingrese su nombre de usuario</label>
-                <input type="email" onChange={(event) => setUser({...user, email: event.target.value})} name='email' />
+            <label>Email</label>
+                <input type="email" placeholder='usuario@gmail.com' onChange={(event) => setUser({...user, email: event.target.value})} name='email' />
             </div>
             <div className={styles['form-item']}>
-                <label>Ingrese su contraseña</label>
-                <input type="password" onChange={(event) => setUser({...user, password: event.target.value})} />
+                <label>Contraseña</label>
+                <input type="password" placeholder='************' onChange={(event) => setUser({...user, password: event.target.value})} />
             </div>
             <button type="submit">Enviar</button>
+            <div>
+              <p>¿Eres nuevo aquí?</p>
+              <Link to='/login'>
+						{" "}Crear Cuenta</Link>
+            </div>
             {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
             {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
             {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}

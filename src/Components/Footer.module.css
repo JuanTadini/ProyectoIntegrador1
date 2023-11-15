@@ -2,7 +2,6 @@
 .footer{
     background-color: #FFFFFF;
     display:flex;
-
     bottom: 0;
     width: 100%;
     margin-top: auto;
@@ -14,7 +13,7 @@
     max-height: 5rem;
 }
 
-.footer-redes{
+/* .footer-redes{
     display: flex;
     gap: 1rem;
     justify-content:flex-end;
@@ -29,7 +28,7 @@
 
 .footer-redes-icono:hover{
     color: rgba(15, 47, 230, 0.578);
-}
+} */
 
 .logoFooter{
     display: flex;

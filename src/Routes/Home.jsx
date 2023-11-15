@@ -6,9 +6,14 @@ import styles from "./Home.module.css";
 // import { useEffect, useState } from "react";
 import Buscador from "../Components/Buscador.jsx";
 import CardCategorias from "../Components/CardCategories.jsx";
+import { Pagination } from "../Components/Pagination.jsx";
+import { useState } from "react";
 
 const Home = () => {
 	const { state } = useProductStates();
+	const [pagina, setPagina] = useState(1);
+	const [porPagina, setPorPagina] = useState(10);
+	const maximo = product.length / porPagina;
 
 	return (
 		<main className={styles["home"]}>
@@ -28,6 +33,23 @@ const Home = () => {
 						{state.products.map((product) => (
 							<Card product={product} key={product.id} />
 						))}
+					</div>
+					<div className={styles.container}>
+						<div className={styles.containerPoke}>
+							{product.slice(
+								(pagina - 1) * porPagina,
+								(pagina - 1) * porPagina + porPagina
+							).map((product, i) => (
+								<div key={i} className={styles.pokeContainer}>
+									<div className={styles.imgContainer}>
+										<img src={pokemon.img} alt={pokemon.name} />
+									</div>
+									<p>{pokemon.name}</p>
+								</div>
+							))}
+						</div>
+
+						<Pagination pagina={pagina} setPagina={setPagina} maximo={maximo} />
 					</div>
 				</section>
 				<section className={styles["homeRecomendar"]}>
