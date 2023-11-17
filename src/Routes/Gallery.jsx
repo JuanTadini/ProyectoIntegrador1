@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import styles from './Gallery.module.css'
 import placeholderImage from '/imagenes/placeholder-png-image.jpg'
+import { Link } from 'react-router-dom'
 
 const Gallery = () => {
 
@@ -20,6 +21,10 @@ const Gallery = () => {
 
   return (
     <div>
+      <Link to="/detail/:id">
+            {" "}
+            Volver atras
+          </Link>
       <div className={styles['gallery-container']}>
         <div className={styles['gallery']}>
           <div className={styles['image-container']}>
