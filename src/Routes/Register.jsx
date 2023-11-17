@@ -1,18 +1,25 @@
 import React from 'react'
-import styles from './Register.module.css'
+import { Link } from "react-router-dom";
 import RegisterForm from '../Components/RegisterForm'
+import styles from './Register.module.css'
 
 const Register = () => {
 
-    
+
   return (
     <div>
-        <div className={styles['form-container']}>
-            <div className={styles['form-box']}>
-                <h2>Registro de nuevo usuario</h2>
-                <RegisterForm/>
-            </div>
+      <div className={styles['form-container']}>
+        <div className={styles['nav-form']}>
+          <Link to="/">
+            {" "}
+            Regresar al inicio
+          </Link>
         </div>
+        <div className={styles['form-box']}>
+          <h4>Registro de usuario</h4>
+          <RegisterForm />
+        </div>
+      </div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ import styles from "./Navbar.module.css";
 
 const Navbar = () => {
 	return (
-		<nav className={styles["nav"]} >
+		<nav className={styles["nav"]}>
 			<section>
 				<div className={styles["logo"]}>
 					<Link to="/">
@@ -15,27 +15,34 @@ const Navbar = () => {
 							alt="logo1"
 						/>
 					</Link>
-					<p className={styles["lema"]}>Vivi la temporada de invierno en la nieve</p>
+					<p className={styles["lema"]}>
+						Vivi la temporada de invierno en la nieve
+					</p>
 				</div>
 			</section>
 
 			<section>
 				<div className={styles["crearIniciar"]}>
-					<button className={styles["crear"]}>
-						<img
-							className={styles["vector1"]}
-							src="/imagenes/vector1.png"
-							alt="vector1"
-						/>{" "}
-						Crear Cuenta
-					</button>
-					<Link to="/login">
+					<Link to='/register'>
+						{" "}
+						<button className={styles["crear"]}>
+							<img
+								className={styles["vector1"]}
+								src="/imagenes/vector1.png"
+								alt="vector1"
+							/>
+							Crear Cuenta
+						</button>
+					</Link>
+
+					<Link to='/login'>
+						{" "}
 						<button className={styles["crear"]}>
 							<img
 								className={styles["vector1"]}
 								src="/imagenes/navigation.png"
 								alt="vector1"
-							/>{" "}
+							/>
 							Iniciar Seccion
 						</button>
 					</Link>
@@ -44,6 +51,5 @@ const Navbar = () => {
 		</nav>
 	);
 };
-
 
 export default Navbar;
