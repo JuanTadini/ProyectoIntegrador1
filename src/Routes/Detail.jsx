@@ -14,13 +14,15 @@ const Detail = () => {
     const params = useParams()
 
 
-	const url = `https://fakestoreapi.com/products/${params.id}`
-	// const url = `https://localhost:8080/products/${params.id}`
+	// const url = `https://fakestoreapi.com/products/${params.id}`
+	const url = `http://localhost:8080/productos/${params.id}`
 
 	useEffect(() => {
 		axios(url)
 		.then(res => dispatch({type: 'GET_PRODUCT', payload: res.data}))
 	}, [])
+
+	console.log(state.product);
 
 	const navigate = useNavigate()
 
@@ -28,12 +30,12 @@ const Detail = () => {
 		<div>
 			<div className={styles['product-container']}>
 				<div className={styles['product-box']}>
-					<h1 className={styles['product-title']}>{state.product.title}</h1>
+					<h1 className={styles['product-title']}>{state.product.nombre}</h1>
 					<div className={styles['product-info-box']}>
 						<div className={styles['product-image-container']}>
-							<img className={styles['product-image']} src={state.product.image} alt="" />
+							<img className={styles['product-image']} src={state.product.imagen} alt="" />
 						</div>
-						<p className={styles['product-description']}>{state.product.description}</p>
+						<p className={styles['product-description']}>{state.product.descripcion}</p>
 					</div>
 					<div className={styles['back-button-container']}>
 						<button id={styles['back-button']} onClick={() => navigate(-1)}>

@@ -1,0 +1,18 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 300px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.form-field-error {
+    color: red;
+}
