@@ -25,7 +25,8 @@ const initialState = {
     products: [],
     product: {},
 	categories:[],
-	recommendation:[]
+	recommendation:[],
+	backend_url: 'http://localhost:8080',
 }
 
 export const ContextProvider = ({ children }) => {

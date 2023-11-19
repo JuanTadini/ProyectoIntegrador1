@@ -6,12 +6,12 @@
     margin: 1rem;
 }
 
-    button {
-        background-color: #0075FF;
-        border: none;
+.containerButton {
+        background-color: #ebeff3;
         padding: 5px 10px;
         border-radius: 3px;
         height: 30px;
+        min-width: 0.5rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -23,14 +23,20 @@
     
 
     button[disabled] {
-        background-color: #474747;
+        background-color: #2835A5;
         cursor: no-drop;
+        border: 1px solid #ebeff3;
     }
 
-    input {
+    .containerImput {
         height: 30px;
-        width: 50px;
+        width: 2rem;
         text-align: center;
-        border: 1px solid #242424;
+        border: none;
         border-radius: 3px;
+        background-color:#C3D4FA ;
+    }
+
+    .containerP{
+        color: #FFFFFF;
     }
