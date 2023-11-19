@@ -8,6 +8,8 @@ import Buscador from "../Components/Buscador.jsx";
 import CardCategorias from "../Components/CardCategories.jsx";
 import { Pagination } from "../Components/Pagination.jsx";
 import { useState } from "react";
+import { CarouselHome } from "../Components/Carusel.jsx";
+
 
 const Home = () => {
 	const { state } = useProductStates();
