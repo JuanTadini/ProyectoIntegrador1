@@ -9,8 +9,8 @@ const Administrar = () => {
         <h1>Panel de administración</h1>
         <div className={styles['separador']}></div>
         <div className={styles['management-columns-container']}>
-          <div>
-            <h2>Gestión de productos</h2>
+          <div className={styles['admin-elements']}>
+            <h4>Gestión de productos</h4>
             <Link to="/administrar/productos/crearProducto">
               <button>Registrar producto</button>
             </Link>
@@ -18,8 +18,8 @@ const Administrar = () => {
               <button>Listar productos</button>
             </Link>
           </div>
-          <div>
-            <h2>Gestión de categorías</h2>
+          <div className={styles['admin-elements']}>
+            <h4>Gestión de categorías</h4>
             <Link to="/administrar/categorias/crearCategoria">
               <button>Agregar categoría</button>
             </Link>
@@ -27,8 +27,8 @@ const Administrar = () => {
               <button>Listar categorías</button>
             </Link>
           </div>
-          <div>
-            <h2>Gestión de usuarios</h2>
+          <div className={styles['admin-elements']}>
+            <h4>Gestión de usuarios</h4>
             <Link to="/administrar/usuarios/crearUsuario">
               <button>Agregar Usuario</button>
             </Link>
