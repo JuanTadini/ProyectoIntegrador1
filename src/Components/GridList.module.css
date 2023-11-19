@@ -1,0 +1,73 @@
+.grid-list {
+    background-color: #ffffff;
+    padding: 2rem;
+}
+
+.table-root {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    min-width: 650px;
+}
+
+.table-head {
+    display: table-header-group;
+}
+
+.table-row {
+    color: inherit;
+    display: table-row;
+    vertical-align: middle;
+    outline: 0;
+}
+
+.table-row:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+}
+
+.table-cell-head {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 900;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.01071em;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    text-align: left;
+    padding: 16px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.table-cell-body {
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-weight: 400;
+    font-size: 0.800rem;
+    line-height: 1.43;
+    letter-spacing: 0.01071em;
+    display: table-cell;
+    vertical-align: inherit;
+    border-bottom: 1px solid rgba(224, 224, 224, 1);
+    text-align: left;
+    padding: 12px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.number-field {
+    text-align: right;
+}
+
+.image-field {
+    text-align: center;
+}
+
+.table-body {
+    display: table-row-group;
+}
+
+.form-button {
+    color: #ffffff;
+    background-color: #ff0000;
+    border: 0px;
+}
