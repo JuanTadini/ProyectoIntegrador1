@@ -25,24 +25,16 @@ const Navbar = () => {
 				<div className={styles["crearIniciar"]}>
 					<Link to='/register'>
 						{" "}
-						<button className={styles["crear"]}>
-							<img
-								className={styles["vector1"]}
-								src="/imagenes/vector1.png"
-								alt="vector1"
-							/>
+						<button	>
+							
 							Crear Cuenta
 						</button>
 					</Link>
 
 					<Link to='/login'>
 						{" "}
-						<button className={styles["crear"]}>
-							<img
-								className={styles["vector1"]}
-								src="/imagenes/navigation.png"
-								alt="vector1"
-							/>
+						<button >
+							
 							Iniciar Seccion
 						</button>
 					</Link>

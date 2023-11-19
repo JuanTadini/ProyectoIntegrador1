@@ -5,14 +5,18 @@ import styles from "./Card.module.css";
 const Card = ({ product }) => {
 	return (
 		<div className={styles["card"]}>
-			<h4>{product.title}</h4>
-			<p>{product.price}</p>
-			<img style={{ height: 100, width: 100 }} src={product.image} alt="" />
-			<button>Alquilar</button>
-			<Link
-				to={"/detail/id" }>
-				<button>Ver detalles</button>
-			</Link>
+			<section className={styles["cardEncabezado"]}>
+				<h4>{product.title}</h4>
+				<p className={styles["cardPrecio"]}>{product.price}</p>
+			</section>
+			<section className={styles["cardCuerpo"]}>
+				<img style={{ height: 100, width: 100 }} src={product.image} alt="" />
+				<button className={styles["cardCuerpoAlquilar"]}>Alquilar</button>
+				<Link to={"/detail/id"}>
+					<button className={styles["cardCuerpoDetalle"]}>Ver detalles</button>
+				</Link>
+			</section>
+
 			{/* <h3>id: {product.id}</h3>
       <h3>Description: {product.description}</h3>
       <h3>Cost/day: {product.price}</h3> */}

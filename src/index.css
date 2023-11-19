@@ -67,6 +67,21 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+input {
+  height: 30px;
+  width: 2rem;
+  text-align: center;
+  border: 1px solid ;
+  border-radius: 3px;
+}
+
+p{
+  color: #434141;
+}
+
+h3{
+  color: #434141;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

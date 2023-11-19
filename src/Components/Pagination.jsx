@@ -35,8 +35,8 @@ export const Pagination = ({ pagina, setPagina, maximo }) => {
 	};
 
 	return (
-		<div className={styles.container}>
-			<button disabled={pagina === 1 || pagina < 1} onClick={previousPage}>
+		<div className={styles["container"]}>
+			<button className={styles["containerButton"]} disabled={pagina === 1 || pagina < 1} onClick={previousPage}>
 				<svg
 					width="11"
 					height="17"
@@ -50,15 +50,15 @@ export const Pagination = ({ pagina, setPagina, maximo }) => {
 					/>
 				</svg>
 			</button>
-			<input
+			<input className={styles["containerImput"]}
 				onChange={(e) => onChange(e)}
 				onKeyDown={(e) => onKeyDown(e)}
 				name="page"
 				autoComplete="off"
 				value={input}
 			/>
-			<p> de {maximo} </p>
-			<button
+			<p className={styles["containerP"]}> de {maximo} </p>
+			<button className={styles["containerButton"]}
 				disabled={pagina === Math.ceil(maximo) || pagina > Math.ceil(maximo)}
 				onClick={nextPage}
 			>

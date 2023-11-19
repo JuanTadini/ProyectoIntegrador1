@@ -8,7 +8,7 @@ import Buscador from "../Components/Buscador.jsx";
 import CardCategorias from "../Components/CardCategories.jsx";
 import { Pagination } from "../Components/Pagination.jsx";
 import { useState } from "react";
-import { CarouselHome } from "../Components/Carusel.jsx";
+
 
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
 			<div className={styles["homeVentanas"]}>
 				<Buscador />
 				<section className={styles["homeCategories"]}>
-					<h3>Categorias</h3>
+					<h3 className={styles["homeH3"]}>Categorias</h3>
 					<div className={styles["card-grid"]}>
 						{state.categories.map((categorias) => (
 							<CardCategorias categorias={categorias} key={categorias.id} />
@@ -30,7 +30,7 @@ const Home = () => {
 					</div>
 				</section>
 				<section className={styles["homeproducto"]}>
-					<h3>Productos</h3>
+					<h3 className={styles["homeProductoH3"]}>Productos</h3>
 					<div className={styles["container"]}>
 						<div className={styles["card-grid"]}>
 							{state.products.slice(
@@ -45,7 +45,7 @@ const Home = () => {
 					</div>
 				</section>
 				<section className={styles["homeRecomendar"]}>
-					<h3>Recomendaciones</h3>
+					<h3 className={styles["homeH3"]}>Recomendaciones</h3>
 					<div className={styles["homeRec"]}>
 						<div className={styles["card-grid"]}>
 							{state.recommendation.map((product) => (
