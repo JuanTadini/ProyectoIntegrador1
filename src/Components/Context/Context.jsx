@@ -38,7 +38,7 @@ export const ContextProvider = ({ children }) => {
 		let count =  0
 		let aux = []
 		while (count < cantidad) {
-			const indexNumber = Math.floor(Math.random() * 19);
+			const indexNumber = Math.floor(Math.random() * (response.length - 1));
 			if(aux.indexOf(indexNumber) < 0){
 				aux.push(indexNumber)
 				count = count + 1
@@ -56,7 +56,7 @@ export const ContextProvider = ({ children }) => {
 		axios(url)
 		.then(res => dispatch({
 			type: 'GET_PRODUCTS',
-			payload: get_reponse_data(res.data, 10)
+			payload: get_reponse_data(res.data, 19)
 		}))
 
 		axios(url)

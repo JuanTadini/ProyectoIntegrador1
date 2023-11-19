@@ -13,7 +13,7 @@ const Home = () => {
 	const { state } = useProductStates();
 	const [pagina, setPagina] = useState(1);
 	const [porPagina, setPorPagina] = useState(10);
-	const maximo = state.products.length / porPagina;
+	const maximo = Math.ceil(state.products.length / porPagina);
 
 	return (
 		<main className={styles["home"]}>
@@ -29,23 +29,13 @@ const Home = () => {
 				</section>
 				<section className={styles["homeproducto"]}>
 					<h3>Productos</h3>
-					<div className={styles["card-grid"]}>
-						{state.products.map((product) => (
-							<Card product={product} key={product.id} />
-						))}
-					</div>
-					<div className={styles.container}>
-						<div className={styles.containerPoke}>
+					<div className={styles["container"]}>
+						<div className={styles["card-grid"]}>
 							{state.products.slice(
 								(pagina - 1) * porPagina,
 								(pagina - 1) * porPagina + porPagina
-							).map((product, i) => (
-								<div key={i} className={styles.pokeContainer}>
-									<div className={styles.imgContainer}>
-										<img src={product.img} alt={product.name} />
-									</div>
-									<p>{product.name}</p>
-								</div>
+							).map((product) => (
+								<Card product={product} key={product.id} />
 							))}
 						</div>
 
