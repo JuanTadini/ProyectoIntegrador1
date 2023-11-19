@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import styles from './GridList.module.css';
 
-const GridList = ({column_names, data}) => {
+const GridList = ({column_names, data, backend_url}) => {
 
   function get_cell(record, field, key) {
     if(field.type === 'string') {
@@ -19,26 +19,15 @@ const GridList = ({column_names, data}) => {
 
   const handleDeleteRecord = (id) => {
     if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert('Mensaje de prueba ' + id)
-      // axios.delete(url, {user})
+      alert(backend_url + '/' + id)
+      // axios.delete(backend_url + '/' + id, {user})
       // .then(res => console.log(res))
       // .catch(err => console.log(err))
     }
   };
 
-  function handleClick() {
-    if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert('Mensaje de prueba')
-      axios.delete(url, {user})
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-    }
-  }
-
-return (
-  
+return (  
   <div className={styles['grid-list']}>
-
     <table className={styles['table-root']}>
         <thead className={styles['table-head']}>
             <tr className={styles['table-row']}>

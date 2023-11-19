@@ -1,12 +1,12 @@
 
 import React, { useState } from 'react'
-import { useProductStates } from "./Context/Context";
-import GridList from "../Components/GridList.jsx";
-import styles from './CategoryList.module.css';
+import { useProductStates } from "./Context/Context.jsx";
+import GridList from "./GridList.jsx";
+import styles from './ProductList.module.css';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 
-const CategoryList = () => {
+const ProductList = () => {
 
 
     const {state} = useProductStates();
@@ -15,7 +15,7 @@ const CategoryList = () => {
         {'name': 'description', 'description': 'Descripción', 'type': 'string'},
         {'name': 'image', 'description': 'Imagen', 'type': 'image'}
     ]
-    const url = state.backend_url + '/categorias/delete'
+    const url = state.backend_url + '/product/delete'
 
 return (
     <>
@@ -29,19 +29,19 @@ return (
                         </Link>
                     </li>
                     <li>
-                        <Link to="/administrar/categorias/crearCategoria">
+                        <Link to="/administrar/productos/crearProducto">
                             {" "}
-                            Agregar categoría
+                            Agregar producto
                         </Link>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={state.categories} backend_url={url}/>
+        <GridList column_names={column_names} data={state.products} backend_url={url}/>
     </>
   )
 }
 
 
-export default CategoryList
+export default ProductList
