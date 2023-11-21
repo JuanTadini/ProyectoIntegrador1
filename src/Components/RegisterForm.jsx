@@ -39,13 +39,11 @@ const RegisterForm = () => {
             setPasswordError(true);
         }
         if (user.email.length >= 5 && user.password.length >= 8) {
-
-            setUser(user);
-            
-            axios.post(url, {user})
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+            axios.post(url, user)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
+        
     }
     
   return (

@@ -11,11 +11,13 @@ import { useState } from "react";
 
 
 
+
 const Home = () => {
 	const { state } = useProductStates();
 	const [pagina, setPagina] = useState(1);
 	const [porPagina, setPorPagina] = useState(10);
 	const maximo = Math.ceil(state.products.length / porPagina);
+
 
 	return (
 		<main className={styles["home"]}>
@@ -48,6 +50,7 @@ const Home = () => {
 					<h3 className={styles["homeH3"]}>Recomendaciones</h3>
 					<div className={styles["homeRec"]}>
 						<div className={styles["card-grid"]}>
+
 							{state.recommendation.map((product) => (
 								<Card product={product} key={product.id} />
 							))}
@@ -59,6 +62,8 @@ const Home = () => {
 						/>
 					</div>
 				</section>
+				<div>
+				</div>
 			</div>
 		</main>
 	);
