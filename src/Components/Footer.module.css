@@ -1,16 +1,16 @@
 
 .footer{
+    /* position: fixed; */
+    bottom: 0;
+    left: 0;
+    width: 100%;
     background-color: #FFFFFF;
     display:flex;
-    bottom: 0;
-    width: 100%;
-    margin-top: auto;
-    height: 4rem;
 }
 
 .footer-img{
-    max-width: 10rem;
-    max-height: 5rem;
+    max-width: 8rem;
+    max-height: 3rem;
 }
 
 /* .footer-redes{
@@ -38,5 +38,5 @@
 }
 
 .logo1{
-    width: 10rem;
+    width: 8rem;
 }

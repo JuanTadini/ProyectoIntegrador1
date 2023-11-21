@@ -3,27 +3,32 @@
 .homeVentanas{
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 }
 
  .homeproducto {
-    background-color: #2835A5;
-    color: #060505;
+    background-color: #2835A5; 
 }
 
 
 .homeproducto, .homeCategories, .homeRecomendar{
     justify-content: space-around;
     gap: 2rem;
-    padding: 3rem;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    color: #434141;
+
 }
 
 .homeRec{
     display: flex;
     align-items: center;
+}
+.homeH3{
+    margin-left: 1rem;
+}
+.homeProductoH3{
+    color:#FFFFFF ;
 }
 
 .card-grid, .card-categories{
@@ -31,7 +36,7 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    border-radius: 3rem;
+
 }
 
 

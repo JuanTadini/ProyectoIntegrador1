@@ -2,12 +2,40 @@
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    gap: 0.1rem;
+    gap:0.5rem;
     width: 15rem;
     padding: 0.8rem;
     text-align: center;
-    border-radius: 0.2rem;
+    border-radius: 0.8rem;
     font-size: 10px;
     align-items: center;
     color:black;
+}
+
+.cardEncabezado{
+    text-align: left;
+    height: 3rem;
+    width: 12rem;
+}
+.cardPrecio{
+    color: #8E8E93;
+
+}
+
+.cardCuerpo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.cardCuerpoAlquilar{
+    background-color: #E11D48 ;
+    font-size: 10px;
+}
+
+.cardCuerpoDetalle{
+    background-color: #FFFFFF ;
+    color: #0075FF;
+    font-size: 10px;
 }
