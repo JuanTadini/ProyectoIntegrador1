@@ -33,7 +33,8 @@ export const ContextProvider = ({ children }) => {
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
-    const url = 'https://fakestoreapi.com/products'
+    // const url = 'https://fakestoreapi.com/products'
+	const url = 'http://localhost:8080/productos/todos'
 
 	function get_reponse_data(response , cantidad){
 		let count =  0
