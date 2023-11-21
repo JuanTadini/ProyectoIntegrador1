@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
-import styles from './LoginForm.module.css'
+import styles from './RegisterForm.module.css';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
 
@@ -52,16 +53,22 @@ const LoginForm = () => {
     <div>
         <form onSubmit={onSubmitForm}>
             <div className={styles['form-item']}>
-                <label htmlFor='email'>Ingrese su email</label>
-                <input type="email" id='email' name='email' onChange={(event) => setUser({...user, email: event.target.value})} />
-                {form && emailError && <strong className={styles['form-field-error']}>Por favor verifique su nombre de usuario</strong>}
+            <label>Email</label>
+                <input type="email" placeholder='usuario@gmail.com' onChange={(event) => setUser({...user, email: event.target.value})} name='email' />
             </div>
             <div className={styles['form-item']}>
-                <label htmlFor='password'>Ingrese su contraseña</label>
-                <input type="password" id='password' name='password' onChange={(event) => setUser({...user, password: event.target.value})} />
-                {form && passwordError && <strong className={styles['form-field-error']}>Por favor verifique su contraseña</strong>}
+                <label>Contraseña</label>
+                <input type="password" placeholder='************' onChange={(event) => setUser({...user, password: event.target.value})} />
             </div>
             <button type="submit">Enviar</button>
+            <div className={styles['link-container']}>
+              <p>¿Eres nuevo aquí?</p>
+              <Link to='/register'>
+						{" "}Crear Cuenta</Link>
+            </div>
+            {form && emailError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
+            {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
+            {form && !emailError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}
         </form>
     </div>
   )

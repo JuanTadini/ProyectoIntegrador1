@@ -6,9 +6,14 @@ import styles from "./Home.module.css";
 // import { useEffect, useState } from "react";
 import Buscador from "../Components/Buscador.jsx";
 import CardCategorias from "../Components/CardCategories.jsx";
+import { Pagination } from "../Components/Pagination.jsx";
+import { useState } from "react";
 
 const Home = () => {
 	const { state } = useProductStates();
+	const [pagina, setPagina] = useState(1);
+	const [porPagina, setPorPagina] = useState(10);
+	const maximo = Math.ceil(state.products.length / porPagina);
 
 	return (
 		<main className={styles["home"]}>
@@ -24,10 +29,17 @@ const Home = () => {
 				</section>
 				<section className={styles["homeproducto"]}>
 					<h3>Productos</h3>
-					<div className={styles["card-grid"]}>
-						{state.products.map((product) => (
-							<Card product={product} key={product.id} />
-						))}
+					<div className={styles["container"]}>
+						<div className={styles["card-grid"]}>
+							{state.products.slice(
+								(pagina - 1) * porPagina,
+								(pagina - 1) * porPagina + porPagina
+							).map((product) => (
+								<Card product={product} key={product.id} />
+							))}
+						</div>
+
+						<Pagination pagina={pagina} setPagina={setPagina} maximo={maximo} />
 					</div>
 				</section>
 				<section className={styles["homeRecomendar"]}>
