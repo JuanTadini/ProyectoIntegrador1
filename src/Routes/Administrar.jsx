@@ -28,6 +28,15 @@ const Administrar = () => {
             </Link>
           </div>
           <div className={styles['admin-elements']}>
+            <h4>Gestión de características</h4>
+            <Link to="/administrar/features/crearProductFeature">
+              <button>Agregar característica</button>
+            </Link>
+            <Link to="/administrar/features/listarProductFeature">
+              <button>Listar características</button>
+            </Link>
+          </div>
+          <div className={styles['admin-elements']}>
             <h4>Gestión de usuarios</h4>
             <Link to="/administrar/usuarios/crearUsuario">
               <button>Agregar Usuario</button>

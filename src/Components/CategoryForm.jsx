@@ -1,5 +1,7 @@
 
 import React, { useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { useProductStates } from "./Context/Context";
 import ButtonForm from "../Components/ButtonForm.jsx";
 import styles from './CategoryForm.module.css';
@@ -7,24 +9,24 @@ import axios from 'axios';
 
 
 const CategoryForm = () => {
-
-
+    const params = useParams()
     const {state} = useProductStates();
 
     const [category, setCategory] = useState({
-        nombre:'',
-        descripcion:'',
-        urlimagen:'',
-        
+        // id: params.id && params.id || '',
+        nombre: '',
+        descripcion: '',
+        urlimagen: '',
     })
     
     const [form, setForm] = useState(false);
     const [dataError, setDataError] = useState(false);
 
-    let url = 'http://localhost:8080/categorias/upload'
+    let url = state.backend_url + '/categorias/upload'
+    const [error, setError] = useState(null);
 
     const onSubmitForm = (e) => {
-         e.preventDefault();
+        e.preventDefault();
         setForm(true);
         if (category.nombre === '') {
             setDataError('El título no debe estar vacío');
@@ -41,6 +43,10 @@ const CategoryForm = () => {
   return (
     <div>
         <form>
+            {/* <div className={styles['form-item']}>
+            <label>Id</label>
+                <input type='text' placeholder='Id' name='titulo' onChange={(event) => setCategory({...category, id: event.target.value})} value={category.id} />
+            </div> */}
             <div className={styles['form-item']}>
             <label>Título</label>
                 <input type='text' placeholder='Título' onChange={(event) => setCategory({...category, nombre: event.target.value})} name='titulo' />

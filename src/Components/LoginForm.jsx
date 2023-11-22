@@ -17,7 +17,7 @@ const LoginForm = () => {
     const [usernameError, setUsernameError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
-    let url = 'http://localhost:8080/login'
+    let url = state.backend_url + '/login'
     
     const onSubmitForm = (e) => {
         e.preventDefault();

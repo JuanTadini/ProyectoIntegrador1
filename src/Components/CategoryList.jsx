@@ -15,7 +15,6 @@ const CategoryList = () => {
         {'name': 'description', 'description': 'Descripción', 'type': 'string'},
         {'name': 'image', 'description': 'Imagen', 'type': 'image'}
     ]
-    const url = state.backend_url + '/categorias/delete'
 
 return (
     <>
@@ -38,7 +37,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={state.categories} backend_url={url}/>
+        <GridList column_names={column_names} data={state.categories} backend_url='/categorias'/>
     </>
   )
 }

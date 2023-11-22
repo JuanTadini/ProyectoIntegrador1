@@ -1,9 +1,11 @@
-
-
 import React, { useState } from 'react';
+import { useProductStates } from "./Context/Context";
 import styles from './GridList.module.css';
 
 const GridList = ({column_names, data, backend_url}) => {
+
+  const {state} = useProductStates();
+  const url = state.backend_url
 
   function get_cell(record, field, key) {
     if(field.type === 'string') {
@@ -17,13 +19,22 @@ const GridList = ({column_names, data, backend_url}) => {
     }
   }
 
-  const handleDeleteRecord = (id) => {
+  const handleDeleteRecord = (event, id) => {
     if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert(backend_url + '/' + id)
-      // axios.delete(backend_url + '/' + id, {user})
+      alert(url + backend_url + '/delete/' + id)
+      // axios.delete(url + backend_url + '/delete' + id, {user})
       // .then(res => console.log(res))
       // .catch(err => console.log(err))
+      event.stopPropagation();
     }
+  };
+
+  const handleClick = (event, value) => {
+    console.log('Button clicked ' + value);
+    console.log(column_names);
+    console.log(data);
+    console.log(data.filter((x) => x.id == value));
+    event.stopPropagation();
   };
 
 return (  
@@ -42,7 +53,7 @@ return (
         <tbody className={styles['table-body']}>
             {data.map((record) => {
                 return (
-                    <tr className={styles['table-row']} key={record.id}>
+                    <tr className={styles['table-row']} key={record.id} onClick={(event) => handleClick(event, record.id)}>
                       {
                         column_names.map((line, key) => {
                           return (
@@ -51,7 +62,7 @@ return (
                         })
                       }
                       <td className={styles['table-cell-body']}>
-                        <button className={styles['form-button']} onClick={() => handleDeleteRecord(record.id)}>Eliminar</button>
+                        <button className={styles['form-button']} onClick={(event) => handleDeleteRecord(event, record.id)}>Eliminar</button>
                       </td>
                     </tr>
                 )

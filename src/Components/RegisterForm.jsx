@@ -21,7 +21,7 @@ const RegisterForm = () => {
     const [usernameError, setUsernameError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
-    let url = 'http://localhost:8080/registro/guardar'
+    let url = state.backend_url + '/registro/guardar'
     
     const onSubmitForm = (e) => {
         e.preventDefault();
