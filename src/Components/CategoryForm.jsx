@@ -1,38 +1,57 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
+
 import { useProductStates } from "./Context/Context";
 import ButtonForm from "../Components/ButtonForm.jsx";
 import styles from './CategoryForm.module.css';
 import axios from 'axios';
+import getModelData from '../Services/getModelData.jsx';
 
 
 const CategoryForm = () => {
-
-
+    const params = useParams()
     const {state} = useProductStates();
 
-    const [categoria, setCategoria] = useState({
-        nombre:'',
-        urlimagen:'',
-        
+    const [category, setCategory] = useState({
+        // id: params.id && params.id || '',
+        nombre: '',
+        descripcion: '',
+        urlimagen: '',
     })
     
     const [dataError, setDataError] = useState(false);
 
-    let url = 'http://localhost:8080/categorias/guardar'
+    let url = state.backend_url + '/categorias'
+    const [error, setError] = useState(null);
 
-    const onSubmitForm = async (e) => {
-         e.preventDefault();
-         if (categoria.nombre === '') {
+    useEffect(() => {
+        if (params.id)
+            getModelData(state.backend_url + '/categorias/' + params.id).then(resultado => {
+                console.log(resultado)
+                setCategory(resultado)
+            });
+     }, []);
+
+    const onSubmitForm = (e) => {
+        e.preventDefault();
+        setForm(true);
+        if (category.nombre === '') {
             setDataError('El título no debe estar vacío');
             return;
         }
 
-        try {
-            const res = await axios.post(url, categoria);
-            console.log(res);
-        } catch (err) {
-            console.error(err);
+        if (category.nombre !== '') {
+            setCategory(category);
+            if (category.id && category.id !== '') {
+                console.log('Mandar a actualizar registro')
+                url += '/actualizar'
+            } else {
+                url += '/guardar'
+            }
+            axios.post(url , category)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     }
     
@@ -40,16 +59,19 @@ const CategoryForm = () => {
     <div>
         <form>
             <div className={styles['form-item']}>
-            <label>Título</label>
-                <input type='text' placeholder='Título' onChange={(event) => setCategoria({...categoria, nombre: event.target.value})} name='titulo' />
+                <input type='hidden' placeholder='Id' name='titulo' onChange={(event) => setCategory({...category, id: event.target.value})} value={category.id} />
             </div>
-            {/* <div className={styles['form-item']}>
-            <label>Descripción</label>
-                <input type='text' placeholder='Descripción' onChange={(event) => setCategoria({...categoria, descripcion: event.target.value})} name='descripcion' />
-            </div> */}
             <div className={styles['form-item']}>
-            <label>Imagen</label>
-                <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategoria({...categoria, imagen: event.target.value})}/>
+                <label>Título</label>
+                <input type='text' placeholder='Título' onChange={(event) => setCategory({...category, nombre: event.target.value})} name='titulo' value={category.nombre} />
+            </div>
+            <div className={styles['form-item']}>
+                <label>Descripción</label>
+                <input type='text' placeholder='Descripción' onChange={(event) => setCategory({...category, descripcion: event.target.value})} name='descripcion' value={category.descripcion} />
+            </div>
+            <div className={styles['form-item']}>
+                <label>Imagen</label>
+                <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>
 

@@ -1,9 +1,20 @@
-
-
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useProductStates } from "./Context/Context";
 import styles from './GridList.module.css';
+import axios from 'axios';
 
-const GridList = ({column_names, data, backend_url}) => {
+const GridList = ({column_names, data, backend_url, form_url}) => {
+
+  const navigate = useNavigate();
+  const {state} = useProductStates();
+  const url = state.backend_url
+  const [recordList, setRecordList] = useState(data);
+
+
+  useEffect(() => {
+    setRecordList(data)
+  }, [data]);
 
   function get_cell(record, field, key) {
     if(field.type === 'string') {
@@ -17,13 +28,23 @@ const GridList = ({column_names, data, backend_url}) => {
     }
   }
 
-  const handleDeleteRecord = (id) => {
+  const handleDeleteRecord = async (event, id) => {
+    event.stopPropagation();
     if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert(backend_url + '/' + id)
-      // axios.delete(backend_url + '/' + id, {user})
-      // .then(res => console.log(res))
-      // .catch(err => console.log(err))
+      await axios.delete(url + backend_url + '/borrar/' + id)
+      .then(() => updateListData(id))
+      .catch(err => console.log(err))
     }
+  };
+
+  const updateListData = (delete_id) => {
+    setRecordList((recordList) => recordList.filter((item) => item.id !== delete_id));
+  }
+
+  const handleClick = (event, value) => {
+    event.stopPropagation();
+    console.log('Entro al update')
+    navigate(form_url + value);
   };
 
 return (  
@@ -40,9 +61,9 @@ return (
             </tr>
         </thead>
         <tbody className={styles['table-body']}>
-            {data.map((record) => {
+            {recordList && recordList.map((record) => {
                 return (
-                    <tr className={styles['table-row']} key={record.id}>
+                    <tr className={styles['table-row']} key={record.id} onClick={(event) => handleClick(event, record.id)}>
                       {
                         column_names.map((line, key) => {
                           return (
@@ -51,7 +72,7 @@ return (
                         })
                       }
                       <td className={styles['table-cell-body']}>
-                        <button className={styles['form-button']} onClick={() => handleDeleteRecord(record.id)}>Eliminar</button>
+                        <button className={styles['form-button']} onClick={(event) => handleDeleteRecord(event, record.id)}>Eliminar</button>
                       </td>
                     </tr>
                 )

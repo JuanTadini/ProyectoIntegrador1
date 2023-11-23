@@ -2,28 +2,25 @@
 import React, { useState , useEffect } from 'react'
 import { useProductStates } from "./Context/Context.jsx";
 import GridList from "./GridList.jsx";
-import styles from './ProductList.module.css';
+import styles from './ProductFeatureList.module.css';
 import { Link } from "react-router-dom";
 import getModelData from '../Services/getModelData.jsx';
 
-const ProductList = () => {
-
+const ProductFeatureList = () => {
 
     const {state} = useProductStates();
     const column_names = [
-        {'name': 'nombre', 'description': 'Título', 'type': 'string'},
-        {'name': 'descripcion', 'description': 'Descripción', 'type': 'string'},
-        {'precio': 'precio', 'description': 'Precio', 'type': 'string'},
-        {'name': 'imagen', 'description': 'Imagen', 'type': 'image'}
+        {'name': 'icono', 'description': 'Icono', 'type': 'image'},
+        {'name': 'nombre', 'description': 'Característica', 'type': 'string'},
     ]
 
     const [records, setRecords] = useState([]);
 
-    useEffect(() => {
-      getModelData(state.backend_url + '/productos/todos').then(resultado => {
-          setRecords(resultado)
-      });
-    }, []);
+     useEffect(() => {
+        getModelData(state.backend_url + '/caracteristicas/todos').then(resultado => {
+            setRecords(resultado)
+        });
+     }, []);
 
 return (
     <>
@@ -37,19 +34,19 @@ return (
                         </Link>
                     </li>
                     <li>
-                        <Link to="/administrar/productos/crearProducto">
+                        <Link to="/administrar/features/crearProductFeature">
                             {" "}
-                            Agregar producto
+                            Agregar característica
                         </Link>
                     </li>
                 </ul>
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={records} backend_url='/product' form_url='/administrar/productos/crearProducto/' />
+        <GridList column_names={column_names} data={records} backend_url='/caracteristicas'/>
     </>
   )
 }
 
 
-export default ProductList
+export default ProductFeatureList
