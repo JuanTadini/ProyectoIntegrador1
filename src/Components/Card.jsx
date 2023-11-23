@@ -12,7 +12,7 @@ const Card = ({ product }) => {
 			<section className={styles["cardCuerpo"]}>
 				<img style={{ height: 100, width: 100 }} src={product.image} alt="" />
 				<button className={styles["cardCuerpoAlquilar"]}>Alquilar</button>
-				<Link to={"/detail/id"}>
+				<Link to={`/detail/${product.id}`}>
 					<button className={styles["cardCuerpoDetalle"]}>Ver detalles</button>
 				</Link>
 			</section>

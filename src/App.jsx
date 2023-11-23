@@ -20,6 +20,7 @@ import Categorias from './Routes/Categorias'
 import Gallery from './Routes/Gallery'
 import Login from './Routes/Login'
 import Register from './Routes/Register'
+import Politicas from './Routes/Politicas'
 
 function App() {
 	return (
@@ -32,6 +33,7 @@ function App() {
 					<Route path='/categorias' element={<Categorias/>}/>
 					<Route path='/detail/:id' element={<Detail/>}/>
 					<Route path='/detail/:id/gallery' element={<Gallery/>}/>
+					<Route path='/politicas' element={<Politicas/>}/>
 					<Route path='/productos' element={<Productos/>}/>
 					<Route path='/administrar' element={<Administrar/>}/>
 					<Route path='/administrar/productos/crearProducto' element={<CrearProducto/>}/>

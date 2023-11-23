@@ -54,17 +54,42 @@
     width: 75%;
 }
 
-.back-button-container {
+.buttons-area {
     display: flex;
     flex-direction: row-reverse;
     width: 100%;
 }
 
+.buttons-container {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#policies-link {
+    text-align: center;
+}
+
+#policies-link:hover {
+    background-color: gainsboro;
+}
+
+.inline-buttons-container {
+    padding-top: 3%;
+}
+
+#share-button {
+    color: #000;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.share-icon {
+    width: 1rem;
+}
+
 #back-button {
     background-color: rgba(0, 0, 0, 0);
     color: #FF3B30;
-    position: relative;
-    right: 2rem;
 }
 
 .detail-gallery-images-box {
@@ -120,11 +145,20 @@
 .detail-link-area {
     display: flex;
     flex-direction: row-reverse;
-    height: 3rem;
+    align-items: center;
 }
 
 #detail-link {
-    align-self: center;
-    position: relative;
-    right: 2rem;
+    display: flex;
+    align-items: center;
+    margin: 1rem 2rem 1rem 0;
+}
+
+#detail-link>button {
+    background-color: #f02b49;
+    height: 3rem;
+}
+
+#detail-link>button:hover {
+    background-color: #eb425b;
 }
