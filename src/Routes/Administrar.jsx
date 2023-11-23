@@ -42,7 +42,7 @@ const Administrar = () => {
               <button>Agregar Usuario</button>
             </Link>
             <Link to="/administrar/usuarios/listarUsuarios">
-              <button>Agregar Usuario</button>
+              <button>Listar Usuarios</button>
             </Link>
           </div>
         </div>

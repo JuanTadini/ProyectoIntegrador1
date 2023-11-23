@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useProductStates } from "./Context/Context";
 import styles from './GridList.module.css';
+import axios from 'axios';
 
 const GridList = ({column_names, data, backend_url}) => {
 
@@ -21,10 +22,10 @@ const GridList = ({column_names, data, backend_url}) => {
 
   const handleDeleteRecord = (event, id) => {
     if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert(url + backend_url + '/delete/' + id)
-      // axios.delete(url + backend_url + '/delete' + id, {user})
-      // .then(res => console.log(res))
-      // .catch(err => console.log(err))
+      alert(url + backend_url + '/borrar/' + id)
+      axios.delete(url + backend_url + '/borrar/' + id)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
       event.stopPropagation();
     }
   };
