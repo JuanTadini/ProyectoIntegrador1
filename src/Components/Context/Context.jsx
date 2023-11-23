@@ -14,6 +14,8 @@ const reducer = (state, action) => {
             return { ...state, categories: action.payload }
         case 'GET_RECOMMENDATION':
             return { ...state, recommendation: action.payload }
+            case 'GET_USER':
+                return { ...state, user: action.payload }
         // case 'SWITCH_THEME':
         // 	return {...state, theme: !state.theme}
         default:
@@ -76,6 +78,16 @@ export const ContextProvider = ({ children }) => {
         getModelData(product_url).then(res => dispatch({
             type: 'GET_RECOMMENDATION',
             payload: get_reponse_data(res, 4)
+        }))
+
+        const user_id = localStorage.getItem("user_id");
+        getModelData(state.backend_url + '/registro/' + user_id).then(res => dispatch({
+            type: 'GET_USER',
+            payload:  {
+                'username': res.username,
+                'id': res.id,
+                'roles': res.appUsuarioRoles,
+            }
         }))
     }, [])
 

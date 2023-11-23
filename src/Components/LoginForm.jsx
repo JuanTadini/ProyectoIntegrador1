@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import styles from './RegisterForm.module.css';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import getModelData from '../Services/getModelData';
 
 const LoginForm = () => {
 
-    const {state} = useProductStates();
+    const navigate = useNavigate();
+    const {state, dispatch} = useProductStates();
 
     const [user, setUser] = useState({
         email: '',
@@ -18,7 +20,7 @@ const LoginForm = () => {
     const [passwordError, setPasswordError] = useState(false);
 
     let url = state.backend_url + '/login'
-    
+
     const onSubmitForm = (e) => {
         e.preventDefault();
         setForm(true);
@@ -44,7 +46,26 @@ const LoginForm = () => {
                     'Content-Type': 'multipart/form-data'
                 }
             })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                getModelData(state.backend_url + '/registro/todos').then(resultado => {
+                    const userId = resultado.filter((item) => item.username == user.email)[0]
+                    dispatch({type: 'GET_USER', payload: {
+                        'username': userId.username,
+                        'id': userId.id,
+                        'roles': userId.appUsuarioRoles,
+                    }})
+                    console.log(userId)
+                    localStorage.removeItem("user_id");
+                    localStorage.setItem("user_id", userId.id);
+                    if (userId.appUsuarioRoles == 'ADMIN') {
+                        navigate('/administrar');
+                    }
+                    else{
+                        navigate('/');
+                    }
+                })
+            })
             .catch(err => console.log(err))
         }
     }
