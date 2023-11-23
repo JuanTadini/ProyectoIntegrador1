@@ -11,30 +11,28 @@ const CategoryForm = () => {
 
     const {state} = useProductStates();
 
-    const [category, setCategory] = useState({
+    const [categoria, setCategoria] = useState({
         nombre:'',
-        descripcion:'',
         urlimagen:'',
         
     })
     
-    const [form, setForm] = useState(false);
     const [dataError, setDataError] = useState(false);
 
-    let url = 'http://localhost:8080/categorias/upload'
+    let url = 'http://localhost:8080/categorias/guardar'
 
-    const onSubmitForm = (e) => {
+    const onSubmitForm = async (e) => {
          e.preventDefault();
-        setForm(true);
-        if (category.nombre === '') {
+         if (categoria.nombre === '') {
             setDataError('El título no debe estar vacío');
+            return;
         }
 
-        if (category.nombre !== '') {
-            setCategory(category);
-            axios.post(url, category)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+        try {
+            const res = await axios.post(url, categoria);
+            console.log(res);
+        } catch (err) {
+            console.error(err);
         }
     }
     
@@ -43,19 +41,19 @@ const CategoryForm = () => {
         <form>
             <div className={styles['form-item']}>
             <label>Título</label>
-                <input type='text' placeholder='Título' onChange={(event) => setCategory({...category, nombre: event.target.value})} name='titulo' />
+                <input type='text' placeholder='Título' onChange={(event) => setCategoria({...categoria, nombre: event.target.value})} name='titulo' />
             </div>
-            <div className={styles['form-item']}>
+            {/* <div className={styles['form-item']}>
             <label>Descripción</label>
-                <input type='text' placeholder='Descripción' onChange={(event) => setCategory({...category, descripcion: event.target.value})} name='descripcion' />
-            </div>
+                <input type='text' placeholder='Descripción' onChange={(event) => setCategoria({...categoria, descripcion: event.target.value})} name='descripcion' />
+            </div> */}
             <div className={styles['form-item']}>
             <label>Imagen</label>
-                <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
+                <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategoria({...categoria, imagen: event.target.value})}/>
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>
 
-            {form && dataError && <h3 className={styles['form-field-error']}>{ dataError }</h3>}
+            { dataError && <h3 className={styles['form-field-error']}>{ dataError }</h3>}
             {/* {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
             {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>} */}
         </form>

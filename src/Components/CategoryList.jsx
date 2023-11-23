@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import GridList from "../Components/GridList.jsx";
 import styles from './CategoryList.module.css';
-import axios from 'axios';
 import { Link } from "react-router-dom";
 
 const CategoryList = () => {

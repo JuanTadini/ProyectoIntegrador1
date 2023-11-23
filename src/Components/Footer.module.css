@@ -1,12 +1,26 @@
 
 .footer{
-    /* position: fixed; */
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: #FFFFFF;
     display:flex;
 }
+
+/* footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFFFFF;
+    padding: 0px 20px;
+    height: 58px;
+    width: 100%;
+    z-index: 10;
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+} */
 
 .footer-img{
     max-width: 8rem;
@@ -39,4 +53,17 @@
 
 .logo1{
     width: 8rem;
+}
+
+@media screen and (min-width: 768px) {
+
+    footer {
+        padding: 0px 20px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    footer {
+        padding: 0px 50px;
+    }
 }

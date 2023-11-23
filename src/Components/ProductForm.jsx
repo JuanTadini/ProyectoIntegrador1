@@ -1,10 +1,9 @@
 
-import React, { useState } from 'react'
+import React, { useState,  } from 'react'
 import { useProductStates } from "./Context/Context";
 import ButtonForm from "../Components/ButtonForm.jsx";
 import styles from './ProductForm.module.css';
 import axios from 'axios';
-import { Link } from "react-router-dom";
 
 const ProductForm = () => {
 
@@ -12,8 +11,8 @@ const ProductForm = () => {
     
         const [product, setProduct] = useState({
             nombre: '',
-            //descripcion: '',
-            precio:'',
+            descripcion: '',
+            //precio:'',
             imagen: ''
         });
     

@@ -69,7 +69,14 @@ const Detail = () => {
 			<div className={styles['detail-link-area']}>
 				<Link to={"/detail/" + state.product.id + "/gallery"} id={styles['detail-link']}>Ver detalle</Link>
 			</div>
+			<div>
+				<div>Caracteristicas del producto</div>
+				<div>
+					
+				</div>
+			</div>
 		</div>
+		
 	)
 }
 
