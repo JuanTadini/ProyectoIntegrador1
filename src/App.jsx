@@ -35,6 +35,7 @@ function App() {
 					<Route path='/productos' element={<Productos/>}/>
 					<Route path='/administrar' element={<Administrar/>}/>
 					<Route path='/administrar/productos/crearProducto' element={<CrearProducto/>}/>
+					<Route path='/administrar/productos/crearProducto/:id' element={<CrearProducto/>}/>
 					<Route path='/administrar/productos/listarProductos' element={<ListarProductos/>}/>
 					<Route path='/administrar/categorias/crearCategoria' element={<CrearCategoria/>}/>
 					<Route path='/administrar/categorias/crearCategoria/:id' element={<CrearCategoria/>}/>

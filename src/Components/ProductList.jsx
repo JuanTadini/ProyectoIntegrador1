@@ -3,8 +3,8 @@ import React, { useState , useEffect } from 'react'
 import { useProductStates } from "./Context/Context.jsx";
 import GridList from "./GridList.jsx";
 import styles from './ProductList.module.css';
-import axios from 'axios';
 import { Link } from "react-router-dom";
+import getModelData from '../Services/getModelData.jsx';
 
 const ProductList = () => {
 
@@ -17,26 +17,13 @@ const ProductList = () => {
         {'name': 'imagen', 'description': 'Imagen', 'type': 'image'}
     ]
 
+    const [records, setRecords] = useState([]);
 
- const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    // Simulando una solicitud GET a una API
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(state.backend_url + '/productos/todos');
-        if (!response.ok) {
-          throw new Error(`Error en la petición: ${response.statusText}`);
-        }
-        const responseData = await response.json();
-        setProducts(responseData);
-      } catch (error) {
-        console.error('Error al obtener la lista de productos:', error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+    useEffect(() => {
+      getModelData(state.backend_url + '/productos/todos').then(resultado => {
+          setRecords(resultado)
+      });
+    }, []);
 
 return (
     <>
@@ -59,7 +46,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={products} backend_url='/product'/>
+        <GridList column_names={column_names} data={records} backend_url='/product' form_url='/administrar/productos/crearProducto/' />
     </>
   )
 }

@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useProductStates } from "./Context/Context";
 import styles from './GridList.module.css';
 import axios from 'axios';
 
-const GridList = ({column_names, data, backend_url}) => {
+const GridList = ({column_names, data, backend_url, form_url}) => {
 
+  const navigate = useNavigate();
   const {state} = useProductStates();
   const url = state.backend_url
+  const [recordList, setRecordList] = useState(data);
+
+
+  useEffect(() => {
+    setRecordList(data)
+  }, [data]);
 
   function get_cell(record, field, key) {
     if(field.type === 'string') {
@@ -20,22 +28,23 @@ const GridList = ({column_names, data, backend_url}) => {
     }
   }
 
-  const handleDeleteRecord = (event, id) => {
+  const handleDeleteRecord = async (event, id) => {
+    event.stopPropagation();
     if(window.confirm("¿Está seguro que desea eliminar el registro?")) {
-      alert(url + backend_url + '/borrar/' + id)
-      axios.delete(url + backend_url + '/borrar/' + id)
-      .then(res => console.log(res))
+      await axios.delete(url + backend_url + '/borrar/' + id)
+      .then(() => updateListData(id))
       .catch(err => console.log(err))
-      event.stopPropagation();
     }
   };
 
+  const updateListData = (delete_id) => {
+    setRecordList((recordList) => recordList.filter((item) => item.id !== delete_id));
+  }
+
   const handleClick = (event, value) => {
-    console.log('Button clicked ' + value);
-    console.log(column_names);
-    console.log(data);
-    console.log(data.filter((x) => x.id == value));
     event.stopPropagation();
+    console.log('Entro al update')
+    navigate(form_url + value);
   };
 
 return (  
@@ -52,7 +61,7 @@ return (
             </tr>
         </thead>
         <tbody className={styles['table-body']}>
-            {data.map((record) => {
+            {recordList && recordList.map((record) => {
                 return (
                     <tr className={styles['table-row']} key={record.id} onClick={(event) => handleClick(event, record.id)}>
                       {
