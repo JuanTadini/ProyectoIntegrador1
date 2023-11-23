@@ -1,0 +1,29 @@
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1rem;
+    font-size: 12px;
+    width: 18rem;
+    margin: 0 auto;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    color: #3f3b3b;
+}
+
+.form-item {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+}
+
+.form-item input{
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+    padding-left: 0.5rem;
+}
+
+.form-field-error {
+    color: red;
+}

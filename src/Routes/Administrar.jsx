@@ -41,6 +41,9 @@ const Administrar = () => {
             <Link to="/administrar/usuarios/crearUsuario">
               <button>Agregar Usuario</button>
             </Link>
+            <Link to="/administrar/usuarios/listarUsuarios">
+              <button>Listar Usuarios</button>
+            </Link>
           </div>
         </div>
       </div>

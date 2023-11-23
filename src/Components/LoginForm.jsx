@@ -14,7 +14,7 @@ const LoginForm = () => {
     })
     
     const [form, setForm] = useState(false);
-    const [usernameError, setUsernameError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
     let url = state.backend_url + '/login'
@@ -23,20 +23,27 @@ const LoginForm = () => {
         e.preventDefault();
         setForm(true);
         if (user.email.length >= 5) {
-            setUsernameError(false);
+            setEmailError(false);
         }
+        else if (user.email.length < 5) {
+            setEmailError(true);
+        }
+
         if (user.password.length >= 8) {
             setPasswordError(false);
         }
-        if (user.email.length < 3) {
-            setUsernameError(true);
-        }
-        if (user.password.length < 8) {
+        else if (user.password.length < 8) {
             setPasswordError(true);
         }
+        
+        
         if (user.email.length >= 5 && user.password.length >= 8) {
             setUser(user);
-            axios.post(url, {user})
+            axios.post(url, user, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
             .then(res => console.log(res))
             .catch(err => console.log(err))
         }
@@ -59,9 +66,9 @@ const LoginForm = () => {
               <Link to='/register'>
 						{" "}Crear Cuenta</Link>
             </div>
-            {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
+            {form && emailError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
             {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
-            {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}
+            {form && !emailError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}
         </form>
     </div>
   )

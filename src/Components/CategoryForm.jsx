@@ -48,15 +48,15 @@ const CategoryForm = () => {
                 <input type='text' placeholder='Id' name='titulo' onChange={(event) => setCategory({...category, id: event.target.value})} value={category.id} />
             </div> */}
             <div className={styles['form-item']}>
-            <label>Título</label>
+                <label>Título</label>
                 <input type='text' placeholder='Título' onChange={(event) => setCategory({...category, nombre: event.target.value})} name='titulo' />
             </div>
             <div className={styles['form-item']}>
-            <label>Descripción</label>
+                <label>Descripción</label>
                 <input type='text' placeholder='Descripción' onChange={(event) => setCategory({...category, descripcion: event.target.value})} name='descripcion' />
             </div>
             <div className={styles['form-item']}>
-            <label>Imagen</label>
+                <label>Imagen</label>
                 <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>

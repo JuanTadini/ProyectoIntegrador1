@@ -12,6 +12,7 @@ import ListarCategorias from './Routes/ListarCategorias'
 import CrearProductFeature from './Routes/CrearProductFeature'
 import ListarProductFeature from './Routes/ListarProductFeature'
 import CrearUsuario from './Routes/CrearUsuario'
+import ListarUsuarios from './Routes/ListarUsuarios'
 import Footer from './Components/Footer'
 import styles from './App.module.css'
 import Buscar from './Routes/Buscar'
@@ -41,6 +42,7 @@ function App() {
 					<Route path='/administrar/features/crearProductFeature' element={<CrearProductFeature/>}/>
 					<Route path='/administrar/features/listarProductFeature' element={<ListarProductFeature/>}/>
 					<Route path='/administrar/usuarios/crearUsuario' element={<CrearUsuario/>}/>
+					<Route path='/administrar/usuarios/listarUsuarios' element={<ListarUsuarios/>}/>
 					<Route path='/login' element={<Login/>}/>
 					<Route path='/register' element={<Register/>}/>
 				</Routes>

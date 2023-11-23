@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import styles from './RegisterForm.module.css';
@@ -6,7 +5,6 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
-
 
     const {state} = useProductStates();
 
@@ -71,9 +69,9 @@ const RegisterForm = () => {
               <Link to='/login'>Iniciar sesión</Link>
             </div>
             
-            {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre de usuario</h3>}
+            {form && usernameError && <h3 className={styles['form-field-error']}>Por favor verifique su nombre</h3>}
             {form && passwordError && <h3 className={styles['form-field-error']}>Por favor verifique su contraseña</h3>}
-            {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Login exitoso</h3>}
+            {form && !usernameError && !passwordError && <h3 style={{color: 'green'}}>Cuenta creada con éxito</h3>}
         </form>
     </div>
   )
