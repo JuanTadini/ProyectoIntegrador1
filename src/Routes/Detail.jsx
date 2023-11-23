@@ -6,6 +6,7 @@ import { useProductStates } from '../Components/Context/Context'
 import styles from './Detail.module.css'
 import placeholderImage from '/imagenes/placeholder-png-image.jpg'
 import arrowIcon from '/imagenes/evaArrowIosBackOutline0.png'
+import shareIcon from '/imagenes/share-icon-symbol.png'
 
 const Detail = () => {
 
@@ -37,16 +38,25 @@ const Detail = () => {
 						</div>
 						<p className={styles['product-description']}>{state.product.descripcion}</p>
 					</div>
-					<div className={styles['back-button-container']}>
-						<button id={styles['back-button']} onClick={() => navigate(-1)}>
-							<img src={arrowIcon} alt="arrowIcon" />
-							<img src={arrowIcon} alt="arrowIcon" /> Volver atrás</button>
+					<div className={styles['buttons-area']}>
+						<div className={styles['buttons-container']}>
+							<Link to={'/politicas'} id={styles['policies-link']}>Ver políticas de producto</Link>
+							<div className={styles['inline-buttons-container']}>
+								<button id={styles['share-button']}>
+									<img className={styles['share-icon']} src={shareIcon} alt="shareIcon" /> Compartir
+								</button>
+								<button id={styles['back-button']} onClick={() => navigate(-1)}>
+									<img src={arrowIcon} alt="arrowIcon" />
+									<img src={arrowIcon} alt="arrowIcon" /> Volver atrás
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 			<div className={styles['detail-gallery-images-box']}>
 				<div className={styles['selected-image-container']}>
-					<img className={styles['selected-image']} src={state.product.image} alt="placeholder" />
+					<img className={styles['selected-image']} src={state.product.imagen} alt="placeholder" />
 				</div>
 				<div className={styles['alternate-images-box']}>
 					<div className={styles['alternate-image-container']}>
@@ -69,7 +79,7 @@ const Detail = () => {
 				</div>
 			</div>
 			<div className={styles['detail-link-area']}>
-				<Link to={"/detail/" + state.product.id + "/gallery"} id={styles['detail-link']}>Ver detalle</Link>
+				<Link to={"/detail/" + state.product.id + "/gallery"} id={styles['detail-link']}><button>Ver galería de imágenes</button></Link>
 			</div>
 		</div>
 	)
