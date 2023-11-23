@@ -27,7 +27,7 @@
     gap: 2rem;
 }
 
-/* @media (max-width: 800px) {
+@media (max-width: 800px) {
     .manage-pannel-container {
         display: none;
     }
@@ -43,4 +43,4 @@
         color: red;
         width: 80%;
     }
-} */
+}

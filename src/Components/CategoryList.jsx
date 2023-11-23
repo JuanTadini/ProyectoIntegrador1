@@ -1,20 +1,28 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import GridList from "../Components/GridList.jsx";
 import styles from './CategoryList.module.css';
-import axios from 'axios';
 import { Link } from "react-router-dom";
+import getModelData from '../Services/getModelData.jsx'
 
 const CategoryList = () => {
 
 
     const {state} = useProductStates();
     const column_names = [
-        {'name': 'title', 'description': 'Título', 'type': 'string'},
-        {'name': 'description', 'description': 'Descripción', 'type': 'string'},
-        {'name': 'image', 'description': 'Imagen', 'type': 'image'}
+        {'name': 'nombre', 'description': 'Nombre', 'type': 'string'},
+        {'name': 'descripcion', 'description': 'Descripción', 'type': 'string'},
+        {'name': 'urlimagen', 'description': 'Imagen', 'type': 'image'}
     ]
+
+    const [records, setRecords] = useState([]);
+
+    useEffect(() => {
+        getModelData(state.backend_url + '/categorias/todos').then(resultado => {
+            setRecords(resultado)
+        });
+    }, []);
 
 return (
     <>
@@ -37,7 +45,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={state.categories} backend_url='/categorias'/>
+        <GridList column_names={column_names} data={records} backend_url='/categorias' form_url='/administrar/categorias/crearCategoria/'/>
     </>
   )
 }
