@@ -16,7 +16,6 @@ const ProductList = () => {
         {'precio': 'precio', 'description': 'Precio', 'type': 'string'},
         {'name': 'imagen', 'description': 'Imagen', 'type': 'image'}
     ]
-    const url = state.backend_url + '/product/delete'
 
 
  const [products, setProducts] = useState([]);
@@ -25,35 +24,19 @@ const ProductList = () => {
     // Simulando una solicitud GET a una API
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/productos/todos');
-        setProducts(response.data);
+        const response = await fetch(state.backend_url + '/productos/todos');
+        if (!response.ok) {
+          throw new Error(`Error en la petición: ${response.statusText}`);
+        }
+        const responseData = await response.json();
+        setProducts(responseData);
       } catch (error) {
         console.error('Error al obtener la lista de productos:', error);
       }
     };
 
     fetchProducts();
-  }, []); // El segundo argumento del useEffect ([]) indica que se ejecutará solo una vez al montar el componente
-
-//   return (
-//     <div>
-//       <h2>Listado de Productos</h2>
-//       <ul>
-//         {products.map(product => (
-//           <li key={product.id}>
-//             <h3>{product.nombre}</h3>
-//             <p>{product.descripcion}</p>
-//             <p>Precio: {product.precio}</p>
-//             {/* Otros detalles del producto */}
-//           </li>
-//         ))}
-//       </ul>
-//     </div>
-//   );
-// };
-
-
-
+  }, []);
 
 return (
     <>
@@ -76,7 +59,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={state.products} backend_url={url}/>
+        <GridList column_names={column_names} data={products} backend_url='/product'/>
     </>
   )
 }

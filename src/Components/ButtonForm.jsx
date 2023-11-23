@@ -6,7 +6,7 @@ const ButtonForm = ({name, handleClick}) => {
 
 return (
     <>
-        <button className={styles['form-button']} onClick={handleClick}>{name}</button>
+        <button type='submit' className={styles['form-button']} onClick={handleClick}>{name}</button>
     </>
   )
 }

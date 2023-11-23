@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import styles from './RegisterForm.module.css';
@@ -6,7 +5,6 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 
 const RegisterForm = () => {
-
 
     const {state} = useProductStates();
 
@@ -21,7 +19,7 @@ const RegisterForm = () => {
     const [usernameError, setUsernameError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
 
-    let url = 'http://localhost:8080/registro/guardar'
+    let url = state.backend_url + '/registro/guardar'
     
     const onSubmitForm = (e) => {
         e.preventDefault();

@@ -1,0 +1,22 @@
+.navbar {
+    height: 3rem;
+    background-color: #C3D4FA;
+    padding-right: 2rem;
+}
+
+.nav-elements {
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+    align-items: center;
+}
+
+.nav-elements ul {
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+}
+
+.nav-elements ul a {
+    color: #fff;
+}

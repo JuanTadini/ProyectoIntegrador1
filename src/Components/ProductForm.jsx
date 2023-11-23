@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useProductStates } from "./Context/Context";
 import ButtonForm from "../Components/ButtonForm.jsx";
 import styles from './ProductForm.module.css';
@@ -16,10 +16,26 @@ const ProductForm = () => {
             precio:'',
             imagen: ''
         });
+        const [categories, setCategories] = useState([]);
+
+        useEffect(() => {
+            // Simulando una solicitud GET a una API
+            const fetchCategories = async () => {
+                try {
+                    // const response = await axios.get(state.backend_url + '/productos/todos');
+                    // setCategories(response.data);
+                    setCategories(state.categories);
+                } catch (error) {
+                    console.error('Error al obtener la lista de categorías:', error);
+                }
+            };
+
+           fetchCategories();
+         }, []);
     
         const [error, setError] = useState(null);
     
-        let url = 'http://localhost:8080/productos/guardar';
+        let url = state.backend_url + '/productos/guardar';
     
         const onSubmitForm = async (e) => {
             e.preventDefault();
@@ -37,15 +53,15 @@ const ProductForm = () => {
             }
         };
 
-        return (
+return (
     <div>
         <form>
             <div className={styles['form-item']}>
-            <label>Nombre</label>
+                <label>Nombre</label>
                 <input type='text' placeholder='Nombre' onChange={(event) => setProduct({...product, nombre: event.target.value})} name='nombre' />
             </div>
             <div className={styles['form-item']}>
-            <label>Descripción</label>
+                <label>Descripción</label>
                 <input type='text' placeholder='Descripción' onChange={(event) => setProduct({...product, descripcion: event.target.value})} name='descripcion' />
             </div>
             {/* <div className={styles['form-item']}>
@@ -53,7 +69,27 @@ const ProductForm = () => {
                 <input type="number" placeholder='12.3' onChange={(event) => setProduct({...product, precio: event.target.value})}  name="precio"/>
             </div> */}
             <div className={styles['form-item']}>
-            <label>Imagen</label>
+                <label>Categoría</label>
+                <select name="selectedCategory">
+                    {categories.map((option, index) => {
+                        return (
+                            <option key={index} value={option.name}>{option.title}</option>
+                        );
+                    })}
+                </select>
+            </div>
+            <div className={styles['form-item']}>
+                <label>Características</label>
+                <select name="selectedFeature" multiple={true}>
+                    {categories.map((option, index) => {
+                        return (
+                            <option key={index} value={option.name}>{option.title}</option>
+                        );
+                    })}
+                </select>
+            </div>
+            <div className={styles['form-item']}>
+                <label>Imagen</label>
                 <input className={styles['input-file']} type="file" id="imagen" name="imagen" multiple="multiple" accept="image/png, image/jpeg" onChange={(event) => setProduct({...product, imagen: event.target.value})}/>
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>
@@ -76,7 +112,7 @@ const ProductForm = () => {
     // const [form, setForm] = useState(false);
     // const [dataError, setDataError] = useState(false);
 
-    // let url = 'http://localhost:8080/productos/guardar'
+    // let url = state.backend_url + '/productos/guardar'
 
     // const onSubmitForm = (e) => {
     //     e.preventDefault();
