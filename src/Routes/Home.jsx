@@ -55,11 +55,11 @@ const Home = () => {
 								<Card product={product} key={product.id} />
 							))}
 						</div>
-						<img
+						{/* <img
 							style={{ height: 50, width: 50 }}
 							src="/imagenes/flecha.png"
 							alt="flecha"
-						/>
+						/> */}
 					</div>
 				</section>
 				<div>

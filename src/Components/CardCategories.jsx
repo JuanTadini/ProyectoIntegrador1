@@ -5,11 +5,11 @@ import styles from "./CardCategories.module.css";
 const CardCategorias = ({ categorias }) => {
 	return (
 		<div className={styles["card"]}>
-			<h2>{categorias.title}</h2>
-            <p>{categorias.description}</p>
+			<h2>{categorias.nombre}</h2>
+            <p>{categorias.descripcion}</p>
 				<img className={styles["button-img-categorias"]}
-					style={{ height: 100, width: 100 }}
-					src={categorias.image}
+					style={{ height: 150, width: 150 }}
+					src={categorias.urlimagen}
 					alt=""
 				/>
 			<Link to={"/Categorias/" + categorias.id}>

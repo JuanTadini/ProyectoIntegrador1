@@ -10,7 +10,7 @@ const Card = ({ product }) => {
 				<p className={styles["cardPrecio"]}>{product.price}</p>
 			</section>
 			<section className={styles["cardCuerpo"]}>
-				<img style={{ height: 100, width: 100 }} src={product.image} alt="" />
+				<img style={{ height: 150, width: 150 }} src={product.image} alt="" />
 				<button className={styles["cardCuerpoAlquilar"]}>Alquilar</button>
 				<Link to={"/detail/id"}>
 					<button className={styles["cardCuerpoDetalle"]}>Ver detalles</button>
