@@ -7,6 +7,7 @@ import styles from './Detail.module.css'
 import placeholderImage from '/imagenes/placeholder-png-image.jpg'
 import arrowIcon from '/imagenes/evaArrowIosBackOutline0.png'
 import shareIcon from '/imagenes/share-icon-symbol.png'
+import Caracteristica from '../Components/Caracteristica'
 
 const Detail = () => {
 
@@ -23,9 +24,15 @@ const Detail = () => {
 		.then(res => dispatch({type: 'GET_PRODUCT', payload: res.data}))
 	}, [])
 
-	console.log(state.product);
+	// console.log(state.product);
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
+
+	const renderAttributes = () => {
+		if (state.product.caracteristicas != undefined) {
+			return state.product.caracteristicas.map((c) => <Caracteristica caracteristica={c} key={c.id}/>)
+		}
+	}
 
 	return (
 		<div>
@@ -80,6 +87,14 @@ const Detail = () => {
 			</div>
 			<div className={styles['detail-link-area']}>
 				<Link to={"/detail/" + state.product.id + "/gallery"} id={styles['detail-link']}><button>Ver galería de imágenes</button></Link>
+			</div>
+			<div className={styles['product-attributes-section']}>
+				<div className={styles['product-attributes-container']}>
+					<h2 className={styles['attributes-title']}>Características:</h2>
+					<div className={styles['attributes-box']}>
+						{renderAttributes()}
+					</div>
+				</div>
 			</div>
 		</div>
 	)
