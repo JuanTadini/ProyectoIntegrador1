@@ -162,3 +162,29 @@
 #detail-link>button:hover {
     background-color: #eb425b;
 }
+
+.product-attributes-section {
+    background-color: #2835A5;
+    display: flex;
+    justify-content: center;
+    padding: 4vw 0;
+}
+
+.product-attributes-container {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.attributes-title {
+    color: #fff;
+    font-size: 2rem;
+}
+
+.attributes-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem 0;
+    width: 100%;
+}

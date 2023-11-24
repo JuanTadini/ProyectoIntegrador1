@@ -29,6 +29,19 @@
     gap: 0.5rem;
 }
 
+.cardCuerpoCajaImagen {
+    display: flex;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+}
+
+.cardCuerpoCajaImagen>img {
+    object-fit: contain;
+    max-height: 100%;
+    width: 100%;
+}
+
 .cardCuerpoAlquilar{
     background-color: #E11D48 ;
     font-size: 10px;

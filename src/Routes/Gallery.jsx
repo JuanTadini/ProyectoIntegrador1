@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useProductStates } from '../Components/Context/Context'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import styles from './Gallery.module.css'
 import placeholderImage from '/imagenes/placeholder-png-image.jpg'
@@ -19,9 +19,11 @@ const Gallery = () => {
         .then(res => dispatch({type: 'GET_PRODUCT', payload: res.data}))
     }, [])
 
+    const navigate = useNavigate();
+
   return (
     <div>
-      <Link to="/detail/:id">
+      <Link onClick={() => navigate(-1)}>
             {" "}
             Volver atras
           </Link>

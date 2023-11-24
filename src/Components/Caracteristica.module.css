@@ -1,0 +1,22 @@
+.attributes-container {
+    display: flex;
+    align-items: center;
+}
+
+.attributes-icon-container {
+    width: 3rem;
+    height: 3rem;
+}
+
+.icon {
+    object-fit: contain;
+    display: flex;
+    max-height: 100%;
+    width: 100%;
+}
+
+.attribute-name {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
