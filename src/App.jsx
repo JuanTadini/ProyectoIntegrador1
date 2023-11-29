@@ -41,6 +41,7 @@ function App() {
 					<Route path='/administrar/categorias/crearCategoria/:id' element={<CrearCategoria/>}/>
 					<Route path='/administrar/categorias/listarCategorias' element={<ListarCategorias/>}/>
 					<Route path='/administrar/features/crearProductFeature' element={<CrearProductFeature/>}/>
+					<Route path='/administrar/features/crearProductFeature/:id' element={<CrearProductFeature/>}/>
 					<Route path='/administrar/features/listarProductFeature' element={<ListarProductFeature/>}/>
 					<Route path='/administrar/usuarios/crearUsuario' element={<CrearUsuario/>}/>
 					<Route path='/administrar/usuarios/listarUsuarios' element={<ListarUsuarios/>}/>

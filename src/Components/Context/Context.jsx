@@ -81,14 +81,17 @@ export const ContextProvider = ({ children }) => {
         }))
 
         const user_id = localStorage.getItem("user_id");
-        getModelData(state.backend_url + '/registro/' + user_id).then(res => dispatch({
-            type: 'GET_USER',
-            payload:  {
-                'username': res.username,
-                'id': res.id,
-                'roles': res.appUsuarioRoles,
-            }
-        }))
+        if (user_id) {
+            getModelData(state.backend_url + '/registro/' + user_id).then(res => dispatch({
+                type: 'GET_USER',
+                payload:  {
+                    'username': res.username,
+                    'id': res.id,
+                    'roles': res.appUsuarioRoles,
+                }
+            }))
+            .catch(err => console.log(err))
+        }
     }, [])
 
     return (
