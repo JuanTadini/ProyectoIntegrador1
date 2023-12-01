@@ -21,15 +21,23 @@
     padding: 10px;
 }
 
+.policies-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 1rem;
+    padding: 2%;
+    width: 90%;
+}
+
 .policies-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #fff;
-    border-radius: 1rem;
-    padding: 4%;
-    width: 90%;
+    justify-content: space-around;
+    padding: 2%;
+    width: 100%;
 }
 
 .policy {
@@ -58,4 +66,9 @@
 
 .requirements-list {
     padding-left: 2rem;
+}
+
+#back-button {
+    background-color: #E11D48;
+    margin-top: 3rem;
 }

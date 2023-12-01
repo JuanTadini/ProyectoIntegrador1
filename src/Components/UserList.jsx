@@ -11,7 +11,8 @@ const UserList = () => {
         {'name': 'id', 'description': 'ID', 'type': 'number'},
         {'name': 'nombre', 'description': 'Nombre', 'type': 'string'},
         {'name': 'username', 'description': 'Nombre de usuario', 'type': 'string'},
-        {'name': 'email', 'description': 'Email', 'type': 'string'}
+        {'name': 'email', 'description': 'Email', 'type': 'string'},
+        {'name': 'appUsuarioRoles', 'description': 'Permiso de acceso', 'type': 'string'}
     ]
 
     const [users, setUsers] = useState([]);

@@ -17,7 +17,6 @@ import Footer from './Components/Footer'
 import styles from './App.module.css'
 import Buscar from './Routes/Buscar'
 import Categorias from './Routes/Categorias'
-import Gallery from './Routes/Gallery'
 import Login from './Routes/Login'
 import Register from './Routes/Register'
 import Politicas from './Routes/Politicas'
@@ -32,7 +31,6 @@ function App() {
 					<Route path='/buscar' element={<Buscar/>}/>
 					<Route path='/categorias' element={<Categorias/>}/>
 					<Route path='/detail/:id' element={<Detail/>}/>
-					<Route path='/detail/:id/gallery' element={<Gallery/>}/>
 					<Route path='/politicas' element={<Politicas/>}/>
 					<Route path='/productos' element={<Productos/>}/>
 					<Route path='/administrar' element={<Administrar/>}/>
@@ -43,6 +41,7 @@ function App() {
 					<Route path='/administrar/categorias/crearCategoria/:id' element={<CrearCategoria/>}/>
 					<Route path='/administrar/categorias/listarCategorias' element={<ListarCategorias/>}/>
 					<Route path='/administrar/features/crearProductFeature' element={<CrearProductFeature/>}/>
+					<Route path='/administrar/features/crearProductFeature/:id' element={<CrearProductFeature/>}/>
 					<Route path='/administrar/features/listarProductFeature' element={<ListarProductFeature/>}/>
 					<Route path='/administrar/usuarios/crearUsuario' element={<CrearUsuario/>}/>
 					<Route path='/administrar/usuarios/listarUsuarios' element={<ListarUsuarios/>}/>

@@ -37,3 +37,48 @@
 .logo1{
     width: 10rem;
 }
+
+#abrir-cerrar {
+    display: none;
+}
+
+.navheader{
+    background-color: #FFFFFF;
+    border: 0.02rem solid #D9D9D9;
+    border-radius: 0.3em;
+    display: none;
+    right: 1em;
+    position: absolute;
+    margin-top: 0.5rem;
+    top: 4em;
+    width: 10rem;
+}
+
+.navheader li{
+    padding: 0.5em;
+    border-bottom: 0.02rem solid #D9D9D9;
+}
+
+
+.navheader li:last-child {
+    border-bottom: none;
+}
+  
+
+.navheader a{
+    color: #000;
+    font-weight: 400;
+    padding: 0.5em;
+}
+
+.navheader a:hover{
+    color: #000;
+}
+
+input#abrir-cerrar:checked + .toggle-button .abrir, input#abrir-cerrar:checked + .toggle-button .navheader {
+    display:none;
+}
+
+input#abrir-cerrar:checked + .toggle-button .cerrar, input#abrir-cerrar:checked + .toggle-button .navheader {
+    display: block;
+}

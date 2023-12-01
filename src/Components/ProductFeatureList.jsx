@@ -43,7 +43,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={records} backend_url='/caracteristicas'/>
+        <GridList column_names={column_names} data={records} backend_url='/caracteristicas' form_url='/administrar/features/crearProductFeature/'/>
     </>
   )
 }
