@@ -13,7 +13,7 @@
 .homeproducto, .homeCategories, .homeRecomendar{
     justify-content: space-around;
     gap: 2rem;
-    padding: 3rem 6rem;
+    padding: 3rem 4rem;
     display: flex;
     flex-direction: column;
     color: #434141;
@@ -37,7 +37,9 @@
     flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
-    padding: 0 10rem;
+
 }
+
+
 
 
