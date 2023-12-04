@@ -13,7 +13,7 @@ const ProductList = () => {
     const column_names = [
         {'name': 'nombre', 'description': 'Título', 'type': 'string'},
         {'name': 'descripcion', 'description': 'Descripción', 'type': 'string'},
-        {'precio': 'precio', 'description': 'Precio', 'type': 'string'},
+        {'name': 'precio', 'description': 'Precio', 'type': 'string'},
         {'name': 'imagen', 'description': 'Imagen', 'type': 'image'}
     ]
 
@@ -46,7 +46,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={records} backend_url='/product' form_url='/administrar/productos/crearProducto/' />
+        <GridList column_names={column_names} data={records} backend_url='/productos' form_url='/administrar/productos/crearProducto/' />
     </>
   )
 }

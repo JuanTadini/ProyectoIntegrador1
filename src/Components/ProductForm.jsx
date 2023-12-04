@@ -13,7 +13,7 @@ const ProductForm = () => {
 
     const [product, setProduct] = useState({
         nombre: '',
-        //descripcion: '',
+        descripcion: '',
         precio:'',
         imagen: ''
     });
@@ -74,10 +74,10 @@ return (
                 <label>Descripción</label>
                 <input type='text' placeholder='Descripción' onChange={(event) => setProduct({...product, descripcion: event.target.value})} name='descripcion' value={product.descripcion} />
             </div>
-            {/* <div className={styles['form-item']}>
+            <div className={styles['form-item']}>
             <label>Precio</label>
-                <input type="number" placeholder='12.3' onChange={(event) => setProduct({...product, precio: event.target.value})}  name="precio"/>
-            </div> */}
+                <input type="number" placeholder='12.3' onChange={(event) => setProduct({...product, precio: event.target.value})}  name="precio" value={product.precio}/>
+            </div>
             <div className={styles['form-item']}>
                 <label>Categoría</label>
                 <select name="selectedCategory" defaultValue={product.selectedCategory}>

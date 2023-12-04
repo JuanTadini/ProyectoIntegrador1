@@ -17,13 +17,13 @@ const CategoryForm = () => {
         // id: params.id && params.id || '',
         nombre: '',
         descripcion: '',
-        urlimagen: '',
+        imagen: '',
     })
     
     const [form, setForm] = useState(false);
     const [dataError, setDataError] = useState(false);
 
-    let url = state.backend_url + '/categorias'
+    let url = state.backend_url + '/categorias/'
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -49,7 +49,15 @@ const CategoryForm = () => {
             } else {
                 url += '/guardar'
             }
-            axios.post(url , category)
+            console.log(category);
+            // axios.post(state.backend_url + '/categorias/upload' , category)
+            //     .then(res => console.log(res))
+            //     .catch(err => console.log(err))
+            axios.post(url , category, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         }
@@ -71,7 +79,7 @@ const CategoryForm = () => {
             </div>
             <div className={styles['form-item']}>
                 <label>Imagen</label>
-                <input className={styles['input-file']} type="file" id="imagen" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
+                <input className={styles['input-file']} type="file" id="imagen" multiple="multiple" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>
 
