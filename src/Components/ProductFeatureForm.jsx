@@ -39,13 +39,16 @@ const ProductFeatureForm = () => {
         }
 
         try {
+            let send_url = url
             if (productFeature.id && productFeature.id !== '') {
-                url += '/actualizar'
+                send_url += '/actualizar'
             } else {
-                url += '/guardar'
+                send_url += '/guardar'
             }
-            const res = await axios.post(url, productFeature);
-            console.log(res);
+            const res = await axios.post(send_url, productFeature);
+            axios.post(send_url, productFeature)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         } catch (err) {
             console.error(err);
         }

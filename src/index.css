@@ -53,10 +53,10 @@ button {
     font-weight: 500;
     font-family: inherit;
     background-color: #0075FF;
-    min-width: 10rem;
+    /* min-width: 10rem; */
     cursor: pointer;
     transition: border-color 0.25s;
-    color: #FFFFFF;
+    color: #000;
 }
 button:hover {
   border-color: #0075FF;
@@ -97,9 +97,9 @@ h3{
     font-weight: 500;
     font-family: inherit;
     background-color: #0075FF;
-    min-width: 10rem;
+    /* min-width: 10rem; */
     cursor: pointer;
     transition: border-color 0.25s;
-    color: #FFFFFF;
+    color: #000;
   }
 }
