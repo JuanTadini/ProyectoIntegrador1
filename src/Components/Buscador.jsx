@@ -16,8 +16,18 @@ const Buscador = () => {
         }
     ]);
     const [isVisibleDate, setIsVisibleDate] = useState(false);
+    const [searchForm, setSearchForm] = useState({
+        dates: '',
+    });
+
     const toggleVisibility = () => {
         setIsVisibleDate(!isVisibleDate);
+    };
+
+    const setRange = (item) => {
+        setState([item.selection])
+        const range = item.selection.startDate.toISOString().slice(0, 10) + ' - ' + item.selection.endDate.toISOString().slice(0, 10)
+        setSearchForm({...searchForm, dates: range})
     };
 
     return (
@@ -27,8 +37,13 @@ const Buscador = () => {
                 <p>Encuentra lo que buscas para tu próxima aventura!</p>
             </div>
             <div className={styles["homeFiltro"]}>
-                <button>elije ciudad</button>
-                <button onClick={toggleVisibility}>fecha</button>
+                <button onClick={toggleVisibility}>Fecha</button>
+                <div className={styles['form-item']}>
+                    <input 
+                        type='text' placeholder='Rango de fechas'name='fecha'
+                        onChange={(event) => setSearchForm({...searchForm, dates: event.target.value})}
+                        value={searchForm.dates} />
+                </div>
                 <button>categorias</button>
                 <button className={styles["buscar"]}>
                     <img src="/imagenes/crearCuenta.png" alt="vector1" />
@@ -38,7 +53,7 @@ const Buscador = () => {
                 isVisibleDate &&
                 <div>
                     <DateRangePicker
-                        onChange={item => setState([item.selection])}
+                        onChange={setRange}
                         showSelectionPreview={true}
                         moveRangeOnFirstSelection={false}
                         months={2}
