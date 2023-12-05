@@ -15,9 +15,13 @@ const ProductForm = () => {
         nombre: '',
         descripcion: '',
         precio:'',
-        imagen: ''
+        imagen: '',
+        categoria: {},
+        caracteristicas: [],
     });
     const [categories, setCategories] = useState([]);
+    const [features, setFeatures] = useState([]);
+    const [selectedOptions, setSelectedOptions] = useState([]);
 
     useEffect(() => {
         const fetchCategories = async () => {
@@ -25,24 +29,51 @@ const ProductForm = () => {
                 await getModelData(state.backend_url + '/categorias/todos').then(resultado => {
                     setCategories(resultado)
                 });
-                // setCategories(state.categories);
             } catch (error) {
                 console.error('Error al obtener la lista de categorías:', error);
             }
         };
+        const fetchProductFeature = async () => {
+            try {
+                await getModelData(state.backend_url + '/caracteristicas/todos').then(resultado => {
+                    setFeatures(resultado)
+                });
+            } catch (error) {
+                console.error('Error al obtener la lista de características:', error);
+            }
+        };
 
         fetchCategories();
+        fetchProductFeature();
         if (params.id) {
             getModelData(state.backend_url + '/productos/' + params.id).then(resultado => {
                 console.log(resultado)
                 setProduct(resultado)
+                const selectedValues = Array.from(resultado.caracteristicas, item => item.id, 10);
+                console.log(selectedValues)
+                setSelectedOptions(selectedValues);
             });
         }
+        
         }, []);
 
     const [error, setError] = useState(null);
 
     let url = state.backend_url + '/productos/guardar';
+
+    const handleCategoryChange = (event) => {
+        console.log(event.target.value)
+        const current_category = categories.filter((item) => item.id == event.target.value)
+        console.log(current_category)
+        setProduct({...product, categoria: current_category[0]})
+    }
+
+    const handleFeaturesChange = (event) => {
+        const selectedValues = Array.from(event.target.selectedOptions, option => parseInt(option.value, 10));
+        setSelectedOptions(selectedValues);
+        const currents = features.filter((item) => selectedValues.includes(item.id))
+        setProduct({...product, caracteristicas: currents})
+    }
 
     const onSubmitForm = async (e) => {
         e.preventDefault();
@@ -80,7 +111,7 @@ return (
             </div>
             <div className={styles['form-item']}>
                 <label>Categoría</label>
-                <select name="selectedCategory" defaultValue={product.selectedCategory}>
+                <select name="selectedCategory" onChange={handleCategoryChange} value={product.categoria.id}>
                     {categories.map((option, index) => {
                         return (
                             <option key={index} value={option.id}>{option.nombre}</option>
@@ -90,10 +121,10 @@ return (
             </div>
             <div className={styles['form-item']}>
                 <label>Características</label>
-                <select name="selectedFeature" multiple={true}>
-                    {categories.map((option, index) => {
+                <select name="selectedFeature" multiple={true} onChange={handleFeaturesChange} value={selectedOptions}>
+                    {features.map((option, index) => {
                         return (
-                            <option key={index} value={option.name}>{option.title}</option>
+                            <option key={index} value={option.id}>{option.nombre}</option>
                         );
                     })}
                 </select>
