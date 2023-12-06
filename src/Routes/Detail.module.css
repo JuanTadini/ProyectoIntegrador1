@@ -142,29 +142,24 @@
     height: 0;
 }
 
-.gallery-button-area {
+.action-buttons-area {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    gap: 2rem;
 }
 
-#show-gallery-button {
-    background-color: #f02b49;
+#reserve-button {
+    background-color: #E11D48;
+    color: #fff;
     display: flex;
     align-items: center;
     margin: 1rem 2rem 1rem 0;
     height: 3rem;
 }
 
-#show-gallery-button>button:hover {
-    background-color: #eb425b;
-}
-
-.close-gallery-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 100;
+#reserve-button:hover {
+    background-color: #eb3752;
 }
 
 .product-attributes-section {

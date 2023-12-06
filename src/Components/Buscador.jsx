@@ -12,7 +12,7 @@ const Buscador = () => {
         {
             startDate: new Date(),
             endDate: addDays(new Date(), 1),
-            key: 'selection'
+            key: 'selection' 
         }
     ]);
     const [isVisibleDate, setIsVisibleDate] = useState(false);

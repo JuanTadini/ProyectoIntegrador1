@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Home from './Routes/Home'
 import Detail from './Routes/Detail'
+import Reservar from './Routes/Reservar'
 import Productos from './Routes/Productos'
 import Administrar from './Routes/Administrar'
 import CrearProducto from './Routes/CrearProducto'
@@ -31,6 +32,7 @@ function App() {
 					<Route path='/buscar' element={<Buscar/>}/>
 					<Route path='/categorias' element={<Categorias/>}/>
 					<Route path='/detail/:id' element={<Detail/>}/>
+					<Route path='/reservar/:id' element={<Reservar/>}/>
 					<Route path='/politicas' element={<Politicas/>}/>
 					<Route path='/productos' element={<Productos/>}/>
 					<Route path='/administrar' element={<Administrar/>}/>
