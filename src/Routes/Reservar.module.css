@@ -78,3 +78,9 @@
 .reserve-information-item>strong>span {
     color: red;
 }
+
+#reserve-button {
+    color: #fff;
+    background-color: #E11D48;
+    width: 100%;
+}
