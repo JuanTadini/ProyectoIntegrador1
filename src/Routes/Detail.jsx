@@ -126,8 +126,11 @@ const Detail = () => {
 					</div>
 				</div>
 			</div>
-			<div className={styles['gallery-button-area']}>
+			<div className={styles['action-buttons-area']}>
 				{loadPopupGallery(imagenesProducto.imagenes)}
+				<Link to={`/reservar/${state.product.id}`}>
+					<button id={styles['reserve-button']}>Realizar reserva</button>
+				</Link>
 			</div>
 			<div className={styles['product-attributes-section']}>
 				<div className={styles['product-attributes-container']}>
