@@ -46,7 +46,7 @@ return (
             </div>
         </nav>
 
-        <GridList column_names={column_names} data={records} backend_url='/product' form_url='/administrar/productos/crearProducto/' />
+        <GridList column_names={column_names} data={records} backend_url='/productos' form_url='/administrar/productos/crearProducto/' />
     </>
   )
 }

@@ -49,7 +49,7 @@ const CategoryForm = () => {
             } else {
                 url += '/guardar'
             }
-            axios.post(url , category)
+            axios.post(url , category,)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         }
