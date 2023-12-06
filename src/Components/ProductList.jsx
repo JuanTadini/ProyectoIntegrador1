@@ -13,7 +13,7 @@ const ProductList = () => {
     const column_names = [
         {'name': 'nombre', 'description': 'Título', 'type': 'string'},
         {'name': 'descripcion', 'description': 'Descripción', 'type': 'string'},
-        {'precio': 'precio', 'description': 'Precio', 'type': 'string'},
+        {'name': 'precio', 'description': 'Precio', 'type': 'string'},
         {'name': 'imagen', 'description': 'Imagen', 'type': 'image'}
     ]
 
