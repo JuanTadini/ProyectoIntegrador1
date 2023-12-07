@@ -180,7 +180,7 @@ const Reservar = () => {
 					<h1 className={styles['product-title']}>{state.product.nombre}</h1>
 					<div className={styles['product-info-box']}>
 						<div className={styles['product-image-container']}>
-							<img className={styles['product-image']} src={loadImage(state.product, 0)} alt="Imagen principal" />
+							<img className={styles['product-image']} src={state.product.imagen} alt="Imagen principal" />
 						</div>
 						<p className={styles['product-description']}>{state.product.descripcion}</p>
 					</div>

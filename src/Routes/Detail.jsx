@@ -112,7 +112,7 @@ const Detail = () => {
 					<h1 className={styles['product-title']}>{state.product.nombre}</h1>
 					<div className={styles['product-info-box']}>
 						<div className={styles['product-image-container']}>
-							<img className={styles['product-image']} src={loadImage(state.product, 0)} alt="Imagen principal" />
+							<img className={styles['product-image']} src={state.product.imagen} alt="Imagen principal" />
 						</div>
 						<p className={styles['product-description']}>{state.product.descripcion}</p>
 					</div>
@@ -145,7 +145,7 @@ const Detail = () => {
 			</div>
 			<div className={styles['detail-gallery-images-box']}>
 				<div className={styles['selected-image-container']}>
-					<img className={styles['selected-image']} src={loadImage(state.product, 0)} alt="main image" />
+					<img className={styles['selected-image']} src={state.product.imagen} alt="main image" />
 				</div>
 				<div className={styles['alternate-images-box']}>
 					<div className={styles['alternate-image-container']}>
