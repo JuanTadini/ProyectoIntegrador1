@@ -59,7 +59,7 @@ export const ContextProvider = ({ children }) => {
         return aux.map((i) => {
             return {
                 id: response[i].id, title: response[i].nombre,
-                image: response[i].imagen, price: response[i].price
+                image: response[i].imagen, price: response[i].precio
             };
         })
     }

@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import styles from "./CardCategories.module.css";
 
 
+
 const CardCategorias = ({ categorias }) => {
+
+	
 	return (
 		<div className={styles["card"]}>
 			<h2 className={styles["h2Categoria"]}>{categorias.nombre}</h2>
@@ -13,7 +16,7 @@ const CardCategorias = ({ categorias }) => {
 					alt=""
 				/>
 			<Link className={styles["aCategoria"]} to={"/Categorias/" + categorias.id}>
-				<button >Ver detalles</button>
+				<button >Ver productos</button>
 			</Link>
 		</div>
 	);
