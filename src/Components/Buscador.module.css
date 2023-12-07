@@ -1,7 +1,7 @@
 
 .homeBuscar{
     background-color: #404040;
-    padding: 3rem 6rem;
+    padding: 2rem 5rem;
     margin: 3rem 6rem;
     display: flex;
     flex-direction: column;
@@ -9,16 +9,25 @@
     gap: 2rem;
     text-align: center;
 }
-
+ 
+.homeBuscar p{
+    color: #FFFFFF;
+    font-family: 'lora', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+}
 .homeFiltro{
         display: flex;
         justify-content: space-around;
+        gap: 1rem;
 }
 
 .buscar{
     background-color:#0075FF ;
     color:#FFFFFF ;
     border-radius: 0.8rem;
+    width: 6rem;
+    height: 2.5rem;
 }
 
 .form-item {
@@ -26,6 +35,7 @@
     flex-direction: column;
     font-weight: 600;
 }
+
 
 .form-item input{
     font-size: 12px;

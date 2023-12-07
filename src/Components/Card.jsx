@@ -8,7 +8,7 @@ const Card = ({ product }) => {
 		<div className={styles["card"]}>
 			<section className={styles["cardEncabezado"]}>
 				<h4>{product.title}</h4>
-				<p className={styles["cardPrecio"]}>{product.precio}</p>
+				<p className={styles["cardPrecio"]}>${product.price}/día</p>
 			</section>
 			<section className={styles["cardCuerpo"]}>
 				<div className={styles["cardCuerpoCajaImagen"]}>
@@ -19,10 +19,6 @@ const Card = ({ product }) => {
 					<button className={styles["cardCuerpoDetalle"]}>Ver detalles</button>
 				</Link>
 			</section>
-
-			{/* <h3>id: {product.id}</h3>
-      <h3>Description: {product.description}</h3>
-      <h3>Cost/day: {product.price}</h3> */}
 		</div>
 	);
 };

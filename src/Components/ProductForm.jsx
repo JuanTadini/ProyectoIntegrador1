@@ -15,7 +15,7 @@ const ProductForm = () => {
         nombre: '',
         descripcion: '',
         precio:'',
-        imagen: '',
+        // imagenes: '',
         categoria: {},
         caracteristicas: [],
     });

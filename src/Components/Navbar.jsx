@@ -6,13 +6,17 @@ import Avatar from 'react-avatar';
 import LogoutForm from "./LogoutForm";
 
 const Navbar = () => {
-	const { state } = useProductStates();
+	const { state, dispatch } = useProductStates();
+
+	const updateContext = () => {
+        dispatch({type: 'SHOW_PRODUCTS_SEARCH', payload: false})
+    }
 
 	return (
 		<nav className={styles["nav"]}>
 			<section>
 				<div className={styles["logo"]}>
-					<Link to="/">
+					<Link to="/" onClick={updateContext}>
 						{" "}
 						<img
 							className={styles["logo1"]}
@@ -45,7 +49,6 @@ const Navbar = () => {
 						<Link to='/register'>
 							{" "}
 							<button	>
-								
 								Crear Cuenta
 							</button>
 						</Link>

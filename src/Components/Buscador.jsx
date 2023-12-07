@@ -112,7 +112,7 @@ const Buscador = () => {
             dispatch({type: 'GET_PRODUCTS_SEARCH', payload: res.map((product) => {
                 return {
                     id: product.id, title: product.nombre,
-                    image: product.imagen, price: product.price
+                    image: product.imagen, price: product.precio
                 };
             })})
             dispatch({type: 'SHOW_PRODUCTS_SEARCH', payload: true})
@@ -136,14 +136,13 @@ const Buscador = () => {
                             value={searchForm.dates} />
                     </div>
                     <div className={styles['form-item']}>
-                        <label>Producto</label>
                         <input type='text' name='search_producto'
                             value={searchTerm}
                             onChange={handleInputChange}
                             onKeyDown={handleKeyDown}
                             onBlur={handleBlur}
                             onFocus={handleFocus}
-                            placeholder="Buscar..." />
+                            placeholder="Buscar productos..." />
                         {showSuggestions && (
                             <div className={styles['suggestions-list']} ref={suggestionsListRef}>
                                 <ul>
@@ -154,9 +153,8 @@ const Buscador = () => {
                             </div>
                         )}
                     </div>
-                    {/* <button>categorias</button> */}
                     <button className={styles["buscar"]}>
-                        <img src="/imagenes/crearCuenta.png" alt="vector1" />
+                        <img src="/imagenes/buscar1.png" alt="vector1" /> Buscar
                     </button>
                 </div>
             </form>

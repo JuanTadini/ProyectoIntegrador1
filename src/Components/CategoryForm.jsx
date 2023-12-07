@@ -17,13 +17,13 @@ const CategoryForm = () => {
         // id: params.id && params.id || '',
         nombre: '',
         descripcion: '',
-        imagen: '',
+        urlimagen: 'https://images.pexels.com/photos/15412239/pexels-photo-15412239/free-photo-of-resfriado-nieve-hombre-saltando.jpeg?auto=compress&cs=tinysrgb&w=1600',
     })
     
     const [form, setForm] = useState(false);
     const [dataError, setDataError] = useState(false);
 
-    let url = state.backend_url + '/categorias/'
+    let url = state.backend_url + '/categorias'
     const [error, setError] = useState(null);
 
     useEffect(() => {
@@ -43,21 +43,18 @@ const CategoryForm = () => {
 
         if (category.nombre !== '') {
             setCategory(category);
+            let back_url = ''
             if (category.id && category.id !== '') {
                 console.log('Mandar a actualizar registro')
-                url += '/actualizar'
+                back_url = url + '/actualizar'
             } else {
-                url += '/guardar'
+                back_url = url + '/guardar'
             }
             console.log(category);
             // axios.post(state.backend_url + '/categorias/upload' , category)
             //     .then(res => console.log(res))
             //     .catch(err => console.log(err))
-            axios.post(url , category, {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            })
+            axios.post(back_url , category)
                 .then(res => console.log(res))
                 .catch(err => console.log(err))
         }
@@ -79,7 +76,7 @@ const CategoryForm = () => {
             </div>
             <div className={styles['form-item']}>
                 <label>Imagen</label>
-                <input className={styles['input-file']} type="file" id="imagen" multiple="multiple" name="imagen" accept="image/png, image/jpeg" onChange={(event) => setCategory({...category, imagen: event.target.value})}/>
+                <input className={styles['input-file']} type="file" id="imagen1" multiple="multiple" name="imagen1" accept="image/png, image/jpeg" />
             </div>
             <ButtonForm name="Registrar" handleClick={onSubmitForm}/>
 

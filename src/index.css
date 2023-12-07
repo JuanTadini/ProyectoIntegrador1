@@ -59,7 +59,7 @@ button {
     color: #000;
 }
 button:hover {
-  border-color: #0075FF;
+  border-color: #f2f3f5;
 }
 button:focus,
 button:focus-visible {
@@ -72,6 +72,7 @@ input {
   text-align: center;
   border: 1px solid ;
   border-radius: 3px;
+  margin: 0.5rem;
 }
 
 p{

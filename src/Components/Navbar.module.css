@@ -16,6 +16,12 @@
     gap: 0.5rem;
 }
 
+.crearIniciar button{
+    color: #FFFFFF;
+    width: 10rem;
+}
+
+
 .crear{
     background-color:#0075FF ;
     color:#FFFFFF ;
