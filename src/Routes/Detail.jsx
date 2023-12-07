@@ -9,18 +9,20 @@ import arrowIcon from '/imagenes/evaArrowIosBackOutline0.png'
 import shareIcon from '/imagenes/share-icon-symbol.png'
 import Caracteristica from '../Components/Caracteristica'
 import PopupGallery from '../Components/PopupGallery'
+import { DateRange } from 'react-date-range'
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
+import es from 'date-fns/locale/es'
+import { eachDayOfInterval, parseISO } from 'date-fns'
 
 const Detail = () => {
 
 	const {state, dispatch} = useProductStates();
-
 	const navigate = useNavigate();
-
     const params = useParams();
 
 
-	// const url = `https://fakestoreapi.com/products/${params.id}`
-	const url = `http://localhost:8080/productos/${params.id}`
+	const url = `${state.backend_url}/productos/${params.id}`
 
 	useEffect(() => {
 		axios(url)
@@ -42,7 +44,7 @@ const Detail = () => {
 			if (obj.imagenes != undefined) {
 				if (Array.isArray(obj.imagenes)) {
 					if (index >= 0 && index < obj.imagenes.length) {
-						return obj.imagenes[index];
+						return obj.imagenes[index].urlImagen;
 					}
 				}
 			}
@@ -53,21 +55,49 @@ const Detail = () => {
 	const loadPopupGallery = arr => {
 		if (Array.isArray(arr)) {
 			if (arr.length > 0) {
-				return <PopupGallery imagenes={arr}/>
+				let listaImagenes = arr.map(objeto => objeto.urlImagen)
+				return <PopupGallery imagenes={listaImagenes}/>
 			}
 		}
 	}
 
 	// array de imagenes provisorio para simular un producto con varias imagenes
-	const imagenesProducto = {
-		imagenes: ["https://cdn-mdb.head.com/CDN3/D/603029/1/768x768/raptor-wcr-120.jpg",
-		"https://cdn-mdb.head.com/CDN3/GH/315653.SET/1/400x400/easy-joy.jpg",
-		"https://cdn-mdb.head.com/CDN3/D/313303.SET_31330301/1/1430x464/supershape-e-magnum-with-binding-protector-pr-13-gw.jpg",
-		"https://cdn-mdb.head.com/CDN3/D/355613/1/768x768/kid-lyt-velcro.jpg",
-		"https://cdn-mdb.head.com/CDN3/D/390511/1/768x768/magnify-5k-photo.jpg",
-		"https://cdn-mdb.head.com/CDN3/D/331613/1/1430x464/true-2-0.jpg"
-		]
+	// const imagenesProducto = {
+	// 	imagenes: ["https://cdn-mdb.head.com/CDN3/D/603029/1/768x768/raptor-wcr-120.jpg",
+	// 	"https://cdn-mdb.head.com/CDN3/GH/315653.SET/1/400x400/easy-joy.jpg",
+	// 	"https://cdn-mdb.head.com/CDN3/D/313303.SET_31330301/1/1430x464/supershape-e-magnum-with-binding-protector-pr-13-gw.jpg",
+	// 	"https://cdn-mdb.head.com/CDN3/D/355613/1/768x768/kid-lyt-velcro.jpg",
+	// 	"https://cdn-mdb.head.com/CDN3/D/390511/1/768x768/magnify-5k-photo.jpg",
+	// 	"https://cdn-mdb.head.com/CDN3/D/331613/1/1430x464/true-2-0.jpg"
+	// 	]
+	// }
+
+	const handleReserveClick = () => {
+		if (!state.user.id) {
+            window.alert('Lo sentimos, tiene que registrarse para poder reservar un producto');
+            navigate("/login");
+        } else if (state.user.id) {
+			navigate(`/reservar/${state.product.id}`);
+		}
 	}
+
+
+	let reservasProducto = [];
+
+    if (Array.isArray(state.product.reservas)) {
+        reservasProducto = state.product.reservas;
+    }
+    
+    const diasOcupados = [];
+    
+    reservasProducto.forEach(reserva => {
+        let fechaInicio = parseISO(reserva.fechaInicioReserva);
+        let fechaFin = parseISO(reserva.fechafinReserva);
+
+        let diasReservados = eachDayOfInterval({start: fechaInicio, end: fechaFin});
+        diasOcupados.push(...diasReservados);
+    });
+
 
 	const renderAttributes = () => {
 		if (state.product.caracteristicas != undefined) {
@@ -82,7 +112,7 @@ const Detail = () => {
 					<h1 className={styles['product-title']}>{state.product.nombre}</h1>
 					<div className={styles['product-info-box']}>
 						<div className={styles['product-image-container']}>
-							<img className={styles['product-image']} src={state.product.imagen} alt="" />
+							<img className={styles['product-image']} src={state.product.imagen} alt="Imagen principal" />
 						</div>
 						<p className={styles['product-description']}>{state.product.descripcion}</p>
 					</div>
@@ -102,6 +132,17 @@ const Detail = () => {
 					</div>
 				</div>
 			</div>
+			<div className={styles['calendar-box']}>
+				<h2>Calendario de fechas disponibles:</h2>
+				<DateRange 
+					locale={ es }
+					months={2}
+                    minDate={ new Date() }
+                    disabledDates={diasOcupados}
+                    direction="horizontal"
+                    dateDisplayFormat='d/MMMM/yyyy'
+				/>
+			</div>
 			<div className={styles['detail-gallery-images-box']}>
 				<div className={styles['selected-image-container']}>
 					<img className={styles['selected-image']} src={state.product.imagen} alt="main image" />
@@ -109,28 +150,26 @@ const Detail = () => {
 				<div className={styles['alternate-images-box']}>
 					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
-						src={loadImage(imagenesProducto, 1)} alt="secondary image" />
+						src={loadImage(state.product, 1)} alt="secondary image" />
 					</div>
 					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
-						src={loadImage(imagenesProducto, 2)} alt="secondary image" />
+						src={loadImage(state.product, 2)} alt="secondary image" />
 					</div>
 					<div className={styles['break']}></div>
 					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
-						src={loadImage(imagenesProducto, 3)} alt="secondary image" />
+						src={loadImage(state.product, 3)} alt="secondary image" />
 					</div>
 					<div className={styles['alternate-image-container']}>
 						<img className={styles['alternate-image']} 
-						src={loadImage(imagenesProducto, 4)} alt="secondary image" />
+						src={loadImage(state.product, 4)} alt="secondary image" />
 					</div>
 				</div>
 			</div>
 			<div className={styles['action-buttons-area']}>
-				{loadPopupGallery(imagenesProducto.imagenes)}
-				<Link to={`/reservar/${state.product.id}`}>
-					<button id={styles['reserve-button']}>Realizar reserva</button>
-				</Link>
+				{loadPopupGallery(state.product.imagenes)}
+				<button id={styles['reserve-button']} onClick={() => handleReserveClick()}>Realizar reserva</button>
 			</div>
 			<div className={styles['product-attributes-section']}>
 				<div className={styles['product-attributes-container']}>

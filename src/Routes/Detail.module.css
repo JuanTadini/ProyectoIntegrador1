@@ -92,6 +92,14 @@
     color: #FF3B30;
 }
 
+.calendar-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 0 3rem 0;
+}
+
 .detail-gallery-images-box {
     border-top: 2px solid black;
     background-color: #F5F5F5;
@@ -166,7 +174,7 @@
     background-color: #2835A5;
     display: flex;
     justify-content: center;
-    padding: 4vw 0;
+    padding: 3rem 0;
 }
 
 .product-attributes-container {
