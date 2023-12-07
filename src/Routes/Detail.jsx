@@ -120,9 +120,9 @@ const Detail = () => {
 						<div className={styles['buttons-container']}>
 							<Link to={'/politicas'} id={styles['policies-link']}>Ver políticas de producto</Link>
 							<div className={styles['inline-buttons-container']}>
-								<button id={styles['share-button']}>
+								{/* <button id={styles['share-button']}>
 									<img className={styles['share-icon']} src={shareIcon} alt="shareIcon" /> Compartir
-								</button>
+								</button> */}
 								<button id={styles['back-button']} onClick={() => navigate(-1)}>
 									<img src={arrowIcon} alt="arrowIcon" />
 									<img src={arrowIcon} alt="arrowIcon" /> Volver atrás
