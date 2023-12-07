@@ -47,7 +47,6 @@ const LoginForm = () => {
                 }
             })
             .then(res => {
-                console.log(res)
                 getModelData(state.backend_url + '/registro/todos').then(resultado => {
                     const userId = resultado.filter((item) => item.username == user.email)[0]
                     dispatch({type: 'GET_USER', payload: {
@@ -55,7 +54,6 @@ const LoginForm = () => {
                         'id': userId.id,
                         'roles': userId.appUsuarioRoles,
                     }})
-                    console.log(userId)
                     localStorage.removeItem("user_id");
                     localStorage.setItem("user_id", userId.id);
                     if (userId.appUsuarioRoles == 'ADMIN') {

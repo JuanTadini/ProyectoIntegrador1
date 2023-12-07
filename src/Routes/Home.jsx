@@ -34,14 +34,26 @@ const Home = () => {
 				<section className={styles["homeproducto"]}>
 					<h3 className={styles["homeProductoH3"]}>Productos</h3>
 					<div className={styles["container"]}>
-						<div className={styles["card-grid"]}>
-							{state.products.slice(
-								(pagina - 1) * porPagina,
-								(pagina - 1) * porPagina + porPagina
-							).map((product) => (
-								<Card product={product} key={product.id} />
-							))}
-						</div>
+						{state.show_products_search ?
+							<div className={styles["card-grid"]}>
+								{state.products_search_list.slice(
+									(pagina - 1) * porPagina,
+									(pagina - 1) * porPagina + porPagina
+								).map((product) => (
+									<Card product={product} key={product.id} />
+								))}
+							</div>
+							:
+							<div className={styles["card-grid"]}>
+								{state.products.slice(
+									(pagina - 1) * porPagina,
+									(pagina - 1) * porPagina + porPagina
+								).map((product) => (
+									<Card product={product} key={product.id} />
+								))}
+							</div>
+						}
+						
 
 						<Pagination pagina={pagina} setPagina={setPagina} maximo={maximo} />
 					</div>

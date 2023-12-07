@@ -14,8 +14,12 @@ const reducer = (state, action) => {
             return { ...state, categories: action.payload }
         case 'GET_RECOMMENDATION':
             return { ...state, recommendation: action.payload }
-            case 'GET_USER':
-                return { ...state, user: action.payload }
+        case 'GET_USER':
+            return { ...state, user: action.payload }
+        case 'GET_PRODUCTS_SEARCH':
+            return { ...state, products_search_list: action.payload }
+        case 'SHOW_PRODUCTS_SEARCH':
+            return { ...state, show_products_search: action.payload }
         // case 'SWITCH_THEME':
         // 	return {...state, theme: !state.theme}
         default:
@@ -30,7 +34,7 @@ const initialState = {
     categories: [],
     recommendation: [],
     backend_url: 'http://localhost:8080',
-    // backend_url: 'https://fakestoreapi.com',
+    show_products_search: false,
 }
 
 export const ContextProvider = ({ children }) => {
